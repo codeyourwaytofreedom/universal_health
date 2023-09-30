@@ -12,11 +12,16 @@ export default function Home() {
       <Wrapper title={null}>
         <div className={h.homie}>
           <div className={h.homie_motto}>
-            <h1>Every breath...</h1>
-            <h1>Every wink...</h1>
-            <h1>Every hearthbeat is SO precious...So you are...</h1>
+              <div>
+                <h1>EVERY MOMENT</h1>
+                <h1>EVERY BREATH</h1>
+                <h1>EVERY HEARTBEAT</h1>
+                <h1>is so precious...</h1>
+                <h1>SO YOU ARE!</h1>
+              </div>
+              <Image width={600} height={600} alt={"medical"} src={"/dr.png"} priority/>
           </div>
-            <video src={"/heart.mp4"} autoPlay muted loop/>
+          
         </div>
         
       </Wrapper>
