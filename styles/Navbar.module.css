@@ -1,0 +1,22 @@
+.navbar {
+  overflow: hidden;
+  padding: 0 4vw;
+  color: whitesmoke;
+  display: grid;
+  align-items: center;
+}
+.navbar_kernel {
+  border-bottom: 1px solid rgb(85, 83, 83);
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5px;
+}
+.navbar video {
+  border: 2px solid rgb(232, 62, 62);
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 900px;
+}/*# sourceMappingURL=Navbar.module.css.map */
