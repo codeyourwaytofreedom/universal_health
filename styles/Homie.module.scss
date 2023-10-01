@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap');
 .homie{
     background-color: rgba($color: #008080, $alpha: 0.4);
     padding: 0 2vw;
@@ -13,6 +12,28 @@
         padding-right: 10vw;
         height: calc(100vh - 80px);
         max-height: 800px;
+        #quick{
+            position: fixed;
+            left: 4vw;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            letter-spacing: -5px;
+            font-size: 17px;
+            background-color: rgba($color: #008080, $alpha: 0.2);
+            box-shadow: -1px -1px 7px 2px #008080;
+            border-radius: 10px;
+            padding: 10px;
+            animation: attention 1.5s infinite;
+            font-weight: 600;
+            cursor: pointer;
+            &:hover{
+                animation: none;
+                color: whitesmoke;
+                box-shadow: -1px -1px 7px 2px whitesmoke;
+                text-shadow: 1px 1px 3px black;
+
+            }
+        }
         img{
             width: 30vw;
             height: auto;
@@ -24,8 +45,8 @@
             position: relative;
             opacity: 0;
             animation: text_intro 0.6s forwards;
-            font-weight: 600;
             font-size: 45px;
+            font-weight: 400;
             &:nth-child(2) {
                 animation-delay: 0.6s;
             }
@@ -39,7 +60,7 @@
             &:nth-child(5) {
                 animation: text_pop 0.6s forwards !important;
                 animation-delay: 2.5s !important;
-                text-shadow: -2px -2px 30px purple;
+                text-shadow: -2px -2px 30px rgb(22,28,63);
             }
         }
     }
@@ -50,7 +71,7 @@
         column-gap: 30px;
         h1{
             &:nth-child(5) {
-                text-shadow: -2px -2px 30px navy;
+                text-shadow: -2px -2px 30px rgb(22,28,63);
             }
         }
     }
@@ -80,4 +101,10 @@
         opacity: 1;
         font-size: 65px;
     }
+}
+
+@keyframes attention {
+    0%{            box-shadow: -1px -1px 7px 2px #008080;   }
+    50%{            box-shadow: -1px -1px 25px 7px rgb(22,28,63);  }
+    100%{            box-shadow: -1px -1px 7px 2px #008080;   }
 }
