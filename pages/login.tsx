@@ -2,36 +2,56 @@ import Wrapper from "../Components/Wrapper";
 import l from "../styles/Login.module.css";
 import { MouseEvent,useRef, useState } from 'react';
 import Image from 'next/image'
+import { useRouter } from "next/navigation";
 
 
 
 const Login = () => {
     const user_name = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
+    const router = useRouter();
     const regex_password = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+~`|}{[\]:/;?><,.\-='"])[A-Za-z0-9!@#$%^&*()_+~`|}{[\]:/;?><,.\-='"]{8,30}$/
     const regex_username = /^[a-zA-Z0-9_]{6,10}$/;
-    const [feedback, setFeedback] = useState<{text:string,color:string,icon:string}>({text:"", color:"red",icon:""})
+    const [feedback, setFeedback] = useState<{text:string,color:string,icon:string}>({text:"", color:"silver",icon:""})
     const successColor = "#008080";
     const warningColor = "crimson";
     const goingonColor = "whitesmoke";
+    
 
     const handle_login = async (e:MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if(regex_username.test(user_name.current!.value) && regex_password.test(password.current!.value)){
             setFeedback({text:"Logging in... Please wait", color:goingonColor,icon:"✔"})
-            const response = await fetch("/api/login",{
-                method: "POST",
-                body:JSON.stringify(
-                    {
-                        username:user_name.current?.value,
-                        password: password.current?.value
-                    })
-            });
-            const status = response.status;
-            if(status === 200){
-                setFeedback({text:"Successful login", color:successColor,icon:"✔"});
-                const resJson = await response.json();
-                console.log(resJson)
+            try {
+                const response = await fetch("/api/login",{
+                    method: "POST",
+                    body:JSON.stringify(
+                        {
+                            username:user_name.current?.value,
+                            password: password.current?.value
+                        })
+                });
+                if(!response.ok){
+                    setFeedback({text:"Please check your connection!", color:warningColor,icon:'⚠'})
+                }
+                const status = response.status;
+                if(status === 200){
+                    setFeedback({text:"Successful login", color:successColor,icon:"✔"});
+                    const resJson = await response.json();
+                    console.log(resJson);
+                    setTimeout(() => {
+                        router.push("/appointment")
+                    }, 900);
+                }
+                if(status === 404 || status === 500){
+                    const resJson = await response.json();
+                    setFeedback({text:resJson.message, color:warningColor,icon:'⚠'})
+                }
+                else {
+                    console.error(response);
+                }
+            } catch (error) {
+                console.log("Network problem or broken url", error)
             }
         }
         else{
