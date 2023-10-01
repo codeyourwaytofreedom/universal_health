@@ -8,7 +8,7 @@
     &_kernel{
         height: 80px;
         display: flex;
-        align-items: flex-end;
+        align-items: center;
         padding-bottom: 10px;
         position: relative;
         video{
@@ -42,6 +42,58 @@
                 z-index: 99;
              }
         }
+        &_tabs{
+            position: absolute;
+            right: 0;
+            display: flex;
+            column-gap: 7px;
+            button{
+                display: flex;
+                align-items: center;
+                background: transparent;
+                border: none;
+                color: silver;
+                font-size: 17px;
+                font-weight: 600;
+                column-gap: 3px;
+                position: relative;
+                img{
+                    width: 25px;
+                    height: 25px;
+                }
+                #tabname{
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    #enlarge{
+                        height: 2px;
+                        background-color: whitesmoke;
+                        display: none;
+                        width: 0;
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+                &:hover{
+                    color: whitesmoke;
+                    img{
+                        filter: brightness(1.5);
+                    }
+                    #tabname{
+                        #enlarge{
+                            display: grid;
+                            animation: grow 0.5s forwards;
+                        }
+                    }
+                }
+            }
+        }
     }
     
+}
+
+
+@keyframes grow {
+    from{width: 0;} 
+    to{width: 100%;}
 }

@@ -21,6 +21,16 @@ export default function Home() {
               </div>
               <Image width={600} height={600} alt={"medical"} src={"/dr.png"} priority/>
           </div>
+          <div className={h.homie_motto} id={h.left}>
+              <Image width={600} height={600} alt={"medical"} src={"/dr1.png"} priority/>
+              <div>
+                <h1>WE CARE</h1>
+                <h1>ABOUT</h1>
+                <h1>YOUR SMILE</h1>
+                <h1>so please remember...</h1>
+                <h1>WE ARE HERE!</h1>
+              </div>
+          </div>
           
         </div>
         

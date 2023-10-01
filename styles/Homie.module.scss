@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 .homie{
-    height: 100vh;
     background-color: rgba($color: #008080, $alpha: 0.4);
     padding: 0 2vw;
     font-family: 'Oswald', sans-serif;
@@ -9,8 +8,11 @@
         position: relative;
         z-index: 2;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
+        padding-right: 10vw;
+        height: calc(100vh - 80px);
+        max-height: 800px;
         img{
             width: 30vw;
             height: auto;
@@ -35,8 +37,20 @@
                 font-size: xx-large;
             }
             &:nth-child(5) {
-                animation-delay: 2.5s;
-                font-size: 55px;
+                animation: text_pop 0.6s forwards !important;
+                animation-delay: 2.5s !important;
+                text-shadow: -2px -2px 30px purple;
+            }
+        }
+    }
+    #left{
+        justify-content: flex-start;
+        padding-left: 10vw;
+        padding-right: 0;
+        column-gap: 30px;
+        h1{
+            &:nth-child(5) {
+                text-shadow: -2px -2px 30px navy;
             }
         }
     }
@@ -54,5 +68,16 @@
     to{
         top: 0;
         opacity: 1;
+    }
+}
+
+@keyframes text_pop {
+    from{
+        opacity: 0;
+        font-size: 45px;
+    }
+    to{
+        opacity: 1;
+        font-size: 65px;
     }
 }

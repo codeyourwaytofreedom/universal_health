@@ -9,7 +9,7 @@
 .navbar_kernel {
   height: 80px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   padding-bottom: 10px;
   position: relative;
 }
@@ -46,4 +46,69 @@
   height: 60px;
   width: auto;
   z-index: 99;
+}
+.navbar_kernel_tabs {
+  position: absolute;
+  right: 0;
+  display: flex;
+  -moz-column-gap: 7px;
+       column-gap: 7px;
+}
+.navbar_kernel_tabs button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: silver;
+  font-size: 17px;
+  font-weight: 600;
+  -moz-column-gap: 3px;
+       column-gap: 3px;
+  position: relative;
+}
+.navbar_kernel_tabs button img {
+  width: 25px;
+  height: 25px;
+}
+.navbar_kernel_tabs button #tabname {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.navbar_kernel_tabs button #tabname #enlarge {
+  height: 2px;
+  background-color: whitesmoke;
+  display: none;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+}
+.navbar_kernel_tabs button:hover {
+  color: whitesmoke;
+}
+.navbar_kernel_tabs button:hover img {
+  filter: brightness(1.5);
+}
+.navbar_kernel_tabs button:hover #tabname #enlarge {
+  display: grid;
+  -webkit-animation: grow 0.5s forwards;
+          animation: grow 0.5s forwards;
+}
+
+@-webkit-keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }/*# sourceMappingURL=Navbar.module.css.map */

@@ -14,8 +14,8 @@ body {
   overflow-x: hidden;
 }
 
-body {
-  
+button {
+  cursor: pointer;
 }
 
 a {
