@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import Navbar from "./Navbar";
 
 
-const Wrapper = ({title,children}:{title:string | null; children:ReactNode}) => {
+const Wrapper = ({title,children, login}:{title:string | null; children:ReactNode, login:boolean}) => {
     return ( <>
     <Head>
         <title>{title || "Universal Health"}</title>
@@ -12,7 +12,7 @@ const Wrapper = ({title,children}:{title:string | null; children:ReactNode}) => 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/healthcare.png" />
     </Head>
-    <Navbar/>
+    <Navbar login={login}/>
     <main>
     <div>
         {children}

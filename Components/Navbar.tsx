@@ -1,7 +1,7 @@
 import Image from "next/image";
 import n from "../styles/Navbar.module.css";
-
-const Navbar = () => {
+import Link from "next/link";
+const Navbar = ({login}:{login:boolean}) => {
     return ( <>
         <div className={n.navbar}>
             <div className={n.navbar_kernel}>
@@ -18,10 +18,13 @@ const Navbar = () => {
                         <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />
                         <span id={n.tabname}>Consultants <span id={n.enlarge}></span></span>
                     </button>
-                    <button>
-                        <Image width={25} height={25} alt={"login"} src={"/login.png"} />
-                        <span id={n.tabname}>Login <span id={n.enlarge}></span></span>
-                    </button>
+                    {
+                        login &&
+                        <button>
+                            <Image width={25} height={25} alt={"login"} src={"/login.png"} />
+                            <Link href={"/login"} id={n.tabname}>Login <span id={n.enlarge}></span></Link>
+                        </button>
+                    }
                 </div>
             </div>
         </div>

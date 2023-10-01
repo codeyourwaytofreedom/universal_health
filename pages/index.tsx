@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Wrapper from '../Components/Wrapper'
 import h from "../styles/Homie.module.css";
-import { Router } from 'next/router';
 import { useRouter } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,7 +11,7 @@ export default function Home() {
   const router = useRouter();
   return (
     <>
-      <Wrapper title={null}>
+      <Wrapper title={null} login={true}>
         <div className={h.homie}>
           <div className={h.homie_motto}>
               <div id={h.quick} onClick={()=>router.push("/appointment")}>QUICK APPOINTMENT</div>
