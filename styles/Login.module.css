@@ -112,7 +112,7 @@
   -o-object-fit: contain;
      object-fit: contain;
   height: 400px;
-  width: auto;
+  width: 600px;
   position: relative;
 }
 .error_kernel_center #closed {
