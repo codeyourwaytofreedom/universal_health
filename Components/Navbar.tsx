@@ -1,9 +1,10 @@
 import Image from "next/image";
 import n from "../styles/Navbar.module.css";
 import Link from "next/link";
-import { useSelector } from 'react-redux';
-
-interface RootState {
+import { useSelector,useDispatch } from 'react-redux';
+import { useEffect } from "react";
+import { update_login } from "../redux/loginSlice";
+export interface RootState {
     loginSlice: {
       loggedIN: boolean;
     };
@@ -11,11 +12,19 @@ interface RootState {
 
 const Navbar = ({login}:{login:boolean}) => {
     const loggedIN = useSelector((state:RootState) => state.loginSlice.loggedIN);
+    const dispatch = useDispatch();
+    
+    useEffect(()=>{
+        if(localStorage.getItem('loggedIN')){
+            dispatch(update_login(true))
+        }
+    },[])
 
     const handle_Logout =async () => {
         try {
             const response = await fetch('/api/logout',{method:'POST'});
             if(response.status === 200){
+                localStorage.removeItem('loggedIN');
                 window.location.href = '/';
             } 
         } catch (error) {
@@ -37,10 +46,10 @@ const Navbar = ({login}:{login:boolean}) => {
                     </button>
                     <button>
                         <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />
-                        <span id={n.tabname}>Consultants <span id={n.enlarge}></span></span>
+                        <Link href={"/consultants"} id={n.tabname}>Consultants <span id={n.enlarge}></span></Link>
                     </button>
                     {
-                        login &&
+                        login && !loggedIN &&
                         <button>
                             <Image width={25} height={25} alt={"login"} src={"/login.png"} />
                             <Link href={"/login"} id={n.tabname}>Login <span id={n.enlarge}></span></Link>

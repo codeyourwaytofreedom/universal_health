@@ -1,14 +1,15 @@
 import Wrapper from "../Components/Wrapper";
 import l from "../styles/Login.module.css";
-import { MouseEvent,useRef, useState } from 'react';
+import { MouseEvent,useEffect,useRef, useState } from 'react';
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { update_login } from "../redux/loginSlice";
-
+import { RootState } from "../Components/Navbar";
 
 const Login = () => {
     const dispatch = useDispatch();
+    const loggedIN = useSelector((state:RootState) => state.loginSlice.loggedIN);
     const user_name = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const router = useRouter();
@@ -19,7 +20,11 @@ const Login = () => {
     const warningColor = "crimson";
     const goingonColor = "whitesmoke";
 
-
+    useEffect(()=>{
+        if(localStorage.getItem('loggedIN')){
+            window.location.href = "/";
+        }
+    },[])
 
     const handle_login = async (e:MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -40,6 +45,7 @@ const Login = () => {
                 const status = response.status;
                 if(status === 200){
                     setFeedback({text:"Successful login", color:successColor,icon:"✔"});
+                    localStorage.setItem('loggedIN','true');
                     const resJson = await response.json();
                     console.log(resJson);
                     setTimeout(() => {

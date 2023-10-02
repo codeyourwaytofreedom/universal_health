@@ -1,16 +1,16 @@
-.login {
+.login, .error {
   height: calc(100vh - 80px);
   background-color: black;
   padding: 0 2vw;
 }
-.login_kernel {
+.login_kernel, .error_kernel {
   border-top: 1px solid silver;
   height: 100%;
   display: grid;
   justify-content: center;
   align-items: center;
 }
-.login_kernel_shell {
+.login_kernel_shell, .error_kernel_shell {
   width: 90vw;
   max-width: 400px;
   height: 450px;
@@ -18,24 +18,24 @@
   border-radius: 10px;
   padding: 10px 20px;
 }
-.login_kernel_shell #feedback {
+.login_kernel_shell #feedback, .error_kernel_shell #feedback {
   display: flex;
   align-items: center;
   -moz-column-gap: 5px;
        column-gap: 5px;
   justify-content: center;
 }
-.login_kernel_shell #feedback span {
+.login_kernel_shell #feedback span, .error_kernel_shell #feedback span {
   font-size: large;
 }
-.login_kernel_shell #feedback span:nth-child(1) {
+.login_kernel_shell #feedback span:nth-child(1), .error_kernel_shell #feedback span:nth-child(1) {
   font-size: larger;
   padding-top: 5px;
 }
-.login_kernel_shell_line {
+.login_kernel_shell_line, .error_kernel_shell_line {
   padding: 10px 0;
 }
-.login_kernel_shell_line input {
+.login_kernel_shell_line input, .error_kernel_shell_line input {
   width: 100%;
   line-height: 1.5;
   font-size: larger;
@@ -46,23 +46,23 @@
   border: none;
   height: 45px;
 }
-.login_kernel_shell_line input:focus {
+.login_kernel_shell_line input:focus, .error_kernel_shell_line input:focus {
   box-shadow: 0px 0px 1px 1px whitesmoke;
   outline: none;
 }
-.login_kernel_shell_line input::-moz-placeholder {
+.login_kernel_shell_line input::-moz-placeholder, .error_kernel_shell_line input::-moz-placeholder {
   color: rgba(245, 245, 245, 0.928);
   font-size: small;
 }
-.login_kernel_shell_line input:-ms-input-placeholder {
+.login_kernel_shell_line input:-ms-input-placeholder, .error_kernel_shell_line input:-ms-input-placeholder {
   color: rgba(245, 245, 245, 0.928);
   font-size: small;
 }
-.login_kernel_shell_line input::placeholder {
+.login_kernel_shell_line input::placeholder, .error_kernel_shell_line input::placeholder {
   color: rgba(245, 245, 245, 0.928);
   font-size: small;
 }
-.login_kernel_shell button {
+.login_kernel_shell button, .error_kernel_shell button {
   width: 100%;
   height: 50px;
   background: transparent;
@@ -73,18 +73,134 @@
   font-size: large;
   transition: font-size 0.5s ease, box-shadow 0.5s ease, color 0.5s ease;
 }
-.login_kernel_shell button:hover {
+.login_kernel_shell button:hover, .error_kernel_shell button:hover {
   font-size: x-large;
   box-shadow: inset 0px 0px 3px 2px whitesmoke;
   color: whitesmoke;
 }
-.login_kernel_shell #key {
+.login_kernel_shell #key, .error_kernel_shell #key {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 150px;
 }
-.login_kernel_shell #key svg {
+.login_kernel_shell #key svg, .error_kernel_shell #key svg {
   width: 120px;
   height: 120px;
+}
+
+.error {
+  color: whitesmoke;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.error_kernel {
+  border-top: 1px solid silver;
+  overflow: hidden;
+  align-items: flex-start;
+}
+.error_kernel_center {
+  width: 100%;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding-top: 5%;
+}
+.error_kernel_center img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: auto;
+  max-width: 600px;
+  position: relative;
+}
+.error_kernel_center #closed {
+  position: absolute;
+  left: 25%;
+  bottom: -1px;
+}
+.error_kernel_center #closed a {
+  position: absolute;
+  font-size: large;
+  z-index: 99;
+  color: gold;
+  padding: 3px;
+  border-radius: 4px;
+  transition: font-weight 0.1s ease;
+}
+.error_kernel_center #closed a:hover {
+  font-weight: 600;
+}
+.error_kernel_center #closed #home {
+  top: -85px;
+  left: 35px;
+}
+.error_kernel_center #closed #consultants {
+  top: 5px;
+  left: 170px;
+}
+.error_kernel_center #closed #help {
+  top: 95px;
+  left: 55px;
+}
+.error_kernel_center #closed span {
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  box-shadow: 0px 0px 4px 2px crimson;
+  width: 30px;
+  height: 40px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  -webkit-animation: light 0.5s infinite;
+          animation: light 0.5s infinite;
+}
+.error_kernel_center h1 {
+  position: absolute;
+  bottom: -60px;
+  color: crimson;
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+}
+.error_kernel_center h1 span {
+  font-size: 40px;
+}
+
+@-webkit-keyframes light {
+  0% {
+    box-shadow: 0px 0px 4px 3px crimson;
+  }
+  25% {
+    box-shadow: 0px 0px 15px 6px crimson;
+  }
+  50% {
+    box-shadow: 0px 0px 25px 9px crimson;
+  }
+  75% {
+    box-shadow: 0px 0px 15px 6px crimson;
+  }
+  100% {
+    box-shadow: 0px 0px 4px 3px crimson;
+  }
+}
+
+@keyframes light {
+  0% {
+    box-shadow: 0px 0px 4px 3px crimson;
+  }
+  25% {
+    box-shadow: 0px 0px 15px 6px crimson;
+  }
+  50% {
+    box-shadow: 0px 0px 25px 9px crimson;
+  }
+  75% {
+    box-shadow: 0px 0px 15px 6px crimson;
+  }
+  100% {
+    box-shadow: 0px 0px 4px 3px crimson;
+  }
 }/*# sourceMappingURL=Login.module.css.map */

@@ -1,4 +1,4 @@
-.login{
+.login,.error{
     height: calc(100vh - 80px);
     background-color: black;
     padding: 0 2vw;
@@ -77,5 +77,97 @@
                 }
             }
         }
+    }
+}
+
+.error{
+    color: whitesmoke;
+    user-select: none;
+    &_kernel{
+        border-top: 1px solid silver;
+        overflow: hidden;
+        align-items: flex-start;
+        &_center{
+            width: 100%;
+            position: relative;
+            display: grid;
+            justify-items: center;
+            padding-top: 5%;
+            img{
+                object-fit: contain;
+                height: auto;
+                max-width: 600px;
+                position: relative;
+            }
+            #closed{
+                position: absolute;
+                left: 25%;
+                bottom:-1px;
+                a{
+                    position: absolute;
+                    font-size: large;
+                    z-index: 99;
+                    color: gold;
+                    padding: 3px;
+                    border-radius: 4px;
+                    transition: font-weight 0.1s ease;
+                    &:hover{
+                        font-weight: 600;
+                    }
+                }
+                #home{
+                    top:-85px;
+                    left: 35px;
+                }
+                #consultants{
+                    top:5px;
+                    left: 170px;
+                }
+                #help{
+                    top:95px;
+                    left:55px;
+                }
+                span{
+                    position: absolute;
+                    top:2px;
+                    left: 5px;
+                    box-shadow: 0px 0px 4px 2px crimson;
+                    width: 30px;
+                    height: 40px;
+                    border-top-left-radius: 15px;
+                    border-top-right-radius: 15px;
+                    animation: light 0.5s infinite;
+                }
+            }
+            h1{
+                position: absolute;
+                bottom: -60px;
+                color: crimson;
+                display: flex;
+                column-gap: 10px;
+                align-items: center;
+                span{
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes light {
+    0%{
+        box-shadow: 0px 0px 4px 3px crimson;
+    }
+    25%{
+        box-shadow: 0px 0px 15px 6px crimson;
+    }
+    50%{
+        box-shadow: 0px 0px 25px 9px crimson;
+    }
+    75%{
+        box-shadow: 0px 0px 15px 6px crimson;
+    }
+    100%{
+        box-shadow: 0px 0px 4px 3px crimson;
     }
 }
