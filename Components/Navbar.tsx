@@ -37,12 +37,14 @@ const Navbar = ({login}:{login:boolean}) => {
             <div className={n.navbar_kernel}>
                 <video src={"/heart.mp4"} autoPlay muted loop/>
                 <div className={n.navbar_kernel_logo}>
-                    <Image width={60} height={60} alt={"health"} src={"/heart_icon.svg"} />
+                    <Link href={"/"}>
+                        <Image width={60} height={60} alt={"health"} src={"/heart_icon.svg"} />
+                    </Link>
                 </div>
                 <div className={n.navbar_kernel_tabs}>
                     <button>
                         <Image width={25} height={25} alt={"clinic"} src={"/clinic.png"} />
-                        <span id={n.tabname}>Clinics <span id={n.enlarge}></span></span>
+                        <Link href={"/clinics"} id={n.tabname}>Clinics <span id={n.enlarge}></span></Link>
                     </button>
                     <button>
                         <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />

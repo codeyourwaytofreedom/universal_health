@@ -1,0 +1,48 @@
+.clinics {
+  padding: 0 2vw;
+  min-height: 500px;
+}
+.clinics_kernel {
+  border: 2px solid gold;
+  padding-top: 20px;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+.clinics_kernel_clinic {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 128, 128, 0.4);
+  -moz-column-gap: 4vw;
+       column-gap: 4vw;
+  width: 90vw;
+}
+.clinics_kernel_clinic #image {
+  width: 50vw;
+  max-width: 500px;
+  padding: 1%;
+  aspect-ratio: 3/2;
+}
+.clinics_kernel_clinic #image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 4%;
+}
+.clinics_kernel_clinic #text {
+  display: grid;
+  width: 40vw;
+  justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.clinics_kernel_clinic #text h1 {
+  font-size: 45px;
+}
+.clinics_kernel_clinic #text h2 {
+  font-weight: 200;
+}/*# sourceMappingURL=Clinics.module.css.map */
