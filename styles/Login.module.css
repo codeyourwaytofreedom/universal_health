@@ -111,8 +111,8 @@
 .error_kernel_center img {
   -o-object-fit: contain;
      object-fit: contain;
-  height: auto;
-  max-width: 600px;
+  height: 400px;
+  width: auto;
   position: relative;
 }
 .error_kernel_center #closed {
