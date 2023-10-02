@@ -120,6 +120,10 @@
   left: 25%;
   bottom: -1px;
 }
+.error_kernel_center #closed img {
+  height: 292px;
+  width: 44px;
+}
 .error_kernel_center #closed a {
   position: absolute;
   font-size: large;
