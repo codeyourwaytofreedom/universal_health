@@ -16,7 +16,7 @@ const NotFound = () => {
                             <Link href={"/"} id={e.help}>Help</Link>
                             <Image width={44} height={73*4} alt={"404"} src={"/closed.png"} priority/>
                         </div>
-                        <Image width={480} height={720} alt={"404"} src={"/404.png"} priority/>
+                        <Image width={400} height={600} alt={"404"} src={"/404.png"} priority/>
                         <h1><span>⚠</span> Page not found!</h1>
                     </div>
                 </div>
