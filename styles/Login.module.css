@@ -102,7 +102,6 @@
   align-items: flex-start;
 }
 .error_kernel_center {
-  width: 100%;
   position: relative;
   display: grid;
   justify-items: center;
