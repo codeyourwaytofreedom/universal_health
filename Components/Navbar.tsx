@@ -1,7 +1,28 @@
 import Image from "next/image";
 import n from "../styles/Navbar.module.css";
 import Link from "next/link";
+import { useSelector } from 'react-redux';
+
+interface RootState {
+    loginSlice: {
+      loggedIN: boolean;
+    };
+  }
+
 const Navbar = ({login}:{login:boolean}) => {
+    const loggedIN = useSelector((state:RootState) => state.loginSlice.loggedIN);
+
+    const handle_Logout =async () => {
+        try {
+            const response = await fetch('/api/logout',{method:'POST'});
+            if(response.status === 200){
+                window.location.href = '/';
+            } 
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return ( <>
         <div className={n.navbar}>
             <div className={n.navbar_kernel}>
@@ -23,6 +44,13 @@ const Navbar = ({login}:{login:boolean}) => {
                         <button>
                             <Image width={25} height={25} alt={"login"} src={"/login.png"} />
                             <Link href={"/login"} id={n.tabname}>Login <span id={n.enlarge}></span></Link>
+                        </button>
+                    }
+                    {
+                        loggedIN &&
+                        <button onClick={handle_Logout}>
+                            <Image width={25} height={25} alt={"logout"} src={"/logout.png"} />
+                            <div id={n.tabname}>Logout <span id={n.enlarge}></span></div>
                         </button>
                     }
                 </div>

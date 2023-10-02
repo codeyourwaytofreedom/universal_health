@@ -81,7 +81,7 @@
   display: none;
   width: 0;
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
 }
 .navbar_kernel_tabs button:hover {
   color: whitesmoke;

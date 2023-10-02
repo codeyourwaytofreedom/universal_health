@@ -6,5 +6,5 @@ export default async function handler(
 ) {
   console.log("LOGOUT endpoint accessed");
   res.setHeader('Set-Cookie', 'AT_pat=; HttpOnly; Max-Age=0; Path=/; Secure');
-  res.redirect('/login');
+  res.status(200).send('OK');
 }

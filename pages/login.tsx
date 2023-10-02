@@ -3,10 +3,12 @@ import l from "../styles/Login.module.css";
 import { MouseEvent,useRef, useState } from 'react';
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
-
+import { useDispatch } from "react-redux";
+import { update_login } from "../redux/loginSlice";
 
 
 const Login = () => {
+    const dispatch = useDispatch();
     const user_name = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const router = useRouter();
@@ -16,7 +18,8 @@ const Login = () => {
     const successColor = "#008080";
     const warningColor = "crimson";
     const goingonColor = "whitesmoke";
-    
+
+
 
     const handle_login = async (e:MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
@@ -40,7 +43,8 @@ const Login = () => {
                     const resJson = await response.json();
                     console.log(resJson);
                     setTimeout(() => {
-                        router.push("/appointment")
+                        dispatch(update_login(true));
+                        router.push("/appointment");
                     }, 900);
                 }
                 if(status === 404 || status === 500){
