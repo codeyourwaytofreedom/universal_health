@@ -1,10 +1,11 @@
 .clinics {
   padding: 0 2vw;
   min-height: 500px;
+  padding-top: 80px;
 }
 .clinics_kernel {
   border: 2px solid gold;
-  padding-top: 20px;
+  padding: 20px 0;
   height: 100%;
   display: grid;
   justify-content: center;
@@ -45,4 +46,20 @@
 }
 .clinics_kernel_clinic #text h2 {
   font-weight: 200;
+}
+
+#mypatients, #appointment {
+  height: 100vh;
+  background-color: rgba(0, 128, 128, 0.4);
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(231, 75, 106);
+  font-size: 4vw;
+  text-shadow: -2px -2px black;
+}
+
+#appointment {
+  color: rgb(127, 189, 209);
 }/*# sourceMappingURL=Clinics.module.css.map */

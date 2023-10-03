@@ -17,6 +17,18 @@ const Clinics = () => {
             alt:"Hair Transplant",
             h2:["✔ Follicular Unit Transplantation","✔ Follicular Unit Extraction","✔ Robotic Hair Transplantation","✔ Scalp Micropigmentation (SMP)"]
         },
+        {
+            seviceName:"Plastic Surgery",
+            url:"/plasticsurgery.jpg",
+            alt:"Plastic Surgery",
+            h2:["✔ Rhinoplasty (Nose Reshaping)","✔ Breast Augmentation","✔ Liposuction","✔ Facelift (Rhytidectomy)"]
+        },
+        {
+            seviceName:"Weight Loss",
+            url:"/wloss.jpg",
+            alt:"Weight Loss",
+            h2:["✔ Personalized Nutrition Plans","✔ Customized Exercise Programs","✔ Medical Weight Loss Programs","✔ Behavioral and Lifestyle Coaching"]
+        },
     ]
     return ( 
     <Wrapper title={"Clinics"} login={true}>
@@ -29,7 +41,7 @@ const Clinics = () => {
                     { services.map((service,index)=>
                         <div className={c.clinics_kernel_clinic} key={index}>
                             <div id={c.image}>
-                                <Image width={750} height={500} alt={service.alt} src={service.url} priority/>
+                                <Image width={750} height={500} alt={service.alt} src={service.url} priority={index === 0 ? true : false}/>
                             </div>
                             <div id={c.text}>
                                 <div>

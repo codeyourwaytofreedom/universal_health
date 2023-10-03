@@ -5,6 +5,9 @@
     align-items: center;
     background-color: black;
     overflow: hidden;
+    position: fixed;
+    left: 0;right: 0;top:0;
+    z-index: 999;
     &_kernel{
         height: 80px;
         display: flex;

@@ -5,6 +5,9 @@ export default async function handler(
   res: NextApiResponse
 ) {
   console.log("LOGOUT endpoint accessed");
-  res.setHeader('Set-Cookie', 'AT_pat=; HttpOnly; Max-Age=0; Path=/; Secure');
+
+  const tokenName = req.cookies.AT_pat ? "AT_pat" : "AT_med";
+  
+  res.setHeader('Set-Cookie', `${tokenName}=; HttpOnly; Max-Age=0; Path=/; Secure`);
   res.status(200).send('OK');
 }

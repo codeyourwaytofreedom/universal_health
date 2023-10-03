@@ -1,6 +1,6 @@
 import Wrapper from "../Components/Wrapper";
 import l from "../styles/Login.module.css";
-import { MouseEvent,useEffect,useRef, useState } from 'react';
+import { MouseEvent,useEffect,useRef, useState,ChangeEvent } from 'react';
 import Image from 'next/image'
 import { useRouter } from "next/navigation";
 import { useDispatch,useSelector } from "react-redux";
@@ -19,6 +19,7 @@ const Login = () => {
     const successColor = "#008080";
     const warningColor = "crimson";
     const goingonColor = "whitesmoke";
+    const [who,setWho] = useState("patient");
 
     useEffect(()=>{
         if(localStorage.getItem('loggedIN')){
@@ -36,7 +37,8 @@ const Login = () => {
                     body:JSON.stringify(
                         {
                             username:user_name.current?.value,
-                            password: password.current?.value
+                            password: password.current?.value,
+                            who:who
                         })
                 });
                 if(!response.ok){
@@ -50,7 +52,7 @@ const Login = () => {
                     console.log(resJson);
                     setTimeout(() => {
                         dispatch(update_login(true));
-                        router.push("/appointment");
+                        router.push(resJson.url);
                     }, 900);
                 }
                 if(status === 404 || status === 500){
@@ -69,11 +71,22 @@ const Login = () => {
         }
     }
 
+    const handleCheck = (event: ChangeEvent<HTMLInputElement>) => {
+        if(event.target.checked){
+            setWho(event.target.value);
+        }
+      };
+
     return ( 
         <Wrapper title={"Log in"} login={false}>
             <div className={l.login}>
                 <div className={l.login_kernel}>
                     <div className={l.login_kernel_shell}>
+                    <div id={l.who}>
+                        <input type={"radio"} name={"yy" } onChange={handleCheck} defaultChecked value={"patient"}/><span>Patient</span>
+                        <input type={"radio"} name={"yy"} onChange={handleCheck} value={"consultant"}/><span>Consultant</span>
+                        <span>{who}</span>
+                    </div>
                     <form>
                         <div className={l.login_kernel_shell_line}>
                             <input type="text" name={"username"} ref={user_name} placeholder={"Username"}/>
