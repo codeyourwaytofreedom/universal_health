@@ -25,26 +25,32 @@ export async function middleware(req: NextRequest, res:NextResponse) {
     const tokenPatient = req.cookies.get('AT_pat')?.value as string;
     const tokenMed = req.cookies.get('AT_med')?.value as string;
 
+    const redirectUrlLogin = new URL("/login", req.url); 
+    const redirectUrlHome = new URL("/", req.url); 
 
     if (req.nextUrl.pathname.startsWith('/appointment')) {
       console.log("Checking for /appointments");
-      const redirectUrl = new URL("/", req.url); 
       if(!tokenPatient && tokenMed){
-        redirectUrl.searchParams.append('forbidden', 'Not Authorized');
-        return NextResponse.redirect(redirectUrl);
+        redirectUrlHome.searchParams.append('forbidden', 'Not Authorized');
+        return NextResponse.redirect(redirectUrlHome);
       }
-      await controlAccess(tokenPatient,process.env.JWT_SECRET_PATIENT,redirectUrl)
+      if(!tokenPatient && !tokenMed){
+        return NextResponse.redirect(redirectUrlLogin);
+      }
+      await controlAccess(tokenPatient,process.env.JWT_SECRET_PATIENT,redirectUrlLogin)
     }
 
 
     if (req.nextUrl.pathname.startsWith('/mypatients')) {
       console.log("Checking for /mypatients");
-      const redirectUrl = new URL("/", req.url); 
       if(!tokenMed && tokenPatient){
-        redirectUrl.searchParams.append('forbidden', 'Not Authorized');
-        return NextResponse.redirect(redirectUrl);
+        redirectUrlHome.searchParams.append('forbidden', 'Not Authorized');
+        return NextResponse.redirect(redirectUrlHome);
       }
-      await controlAccess(tokenMed,process.env.JWT_SECRET_MED,redirectUrl)
+      if(!tokenPatient && !tokenMed){
+        return NextResponse.redirect(redirectUrlLogin);
+      }
+      await controlAccess(tokenMed,process.env.JWT_SECRET_MED,redirectUrlLogin)
     }
 
   } catch (error) {
