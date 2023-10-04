@@ -1,11 +1,40 @@
+.filter{
+    height: 200px;
+    background-color: black;    
+    position: relative; 
+    top:80px;
+    &_tabs{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        &_kernel{
+            width: 90vw;
+            background-color: #008080;
+            position: relative;
+            height: 120px;
+            top:40px;
+            z-index: 99;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 2vw;
+            flex-wrap:wrap;
+            select{
+            }
+        }
+    }
+}
 .clinics{
     //background-color: rgba($color: #008080, $alpha: 0.4);
     padding: 0 2vw;
     min-height: 500px;
     padding-top: 80px;
+    position: relative;
+    top:-200px;
     &_kernel{
+        position: relative;
         padding: 2vw 0;
-        height: 100%;
+        padding-top: calc(200px + 2vw);
         display: grid;
         justify-content: center;
         align-items: flex-start;
@@ -14,9 +43,9 @@
             display: flex;
             align-items: center;
             background-color: rgba($color: #008080, $alpha: 0.4);
-            width: 90vw;
+            width: 80vw;
             &:hover{
-                background-color: rgba($color: #008080, $alpha: 0.6);
+                background-color: rgba($color: #008080, $alpha: 1);
                 img{
                     box-shadow: 2px 2px 3px 1px gray;
                     filter: brightness(1.1);
@@ -24,7 +53,7 @@
             }
             #image{
                 width: 50vw;
-                max-width: 500px;
+                max-width: 450px;
                 padding: 1%;
                 aspect-ratio: 3/2;
                 img{

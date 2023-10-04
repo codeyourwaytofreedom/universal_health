@@ -1,11 +1,39 @@
+.filter {
+  height: 200px;
+  background-color: black;
+  position: relative;
+  top: 80px;
+}
+.filter_tabs {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.filter_tabs_kernel {
+  width: 90vw;
+  background-color: #008080;
+  position: relative;
+  height: 120px;
+  top: 40px;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 2vw;
+       column-gap: 2vw;
+  flex-wrap: wrap;
+}
 .clinics {
   padding: 0 2vw;
   min-height: 500px;
   padding-top: 80px;
+  position: relative;
+  top: -200px;
 }
 .clinics_kernel {
+  position: relative;
   padding: 2vw 0;
-  height: 100%;
+  padding-top: calc(200px + 2vw);
   display: grid;
   justify-content: center;
   align-items: flex-start;
@@ -15,10 +43,10 @@
   display: flex;
   align-items: center;
   background-color: rgba(0, 128, 128, 0.4);
-  width: 90vw;
+  width: 80vw;
 }
 .clinics_kernel_clinic:hover {
-  background-color: rgba(0, 128, 128, 0.6);
+  background-color: teal;
 }
 .clinics_kernel_clinic:hover img {
   box-shadow: 2px 2px 3px 1px gray;
@@ -26,7 +54,7 @@
 }
 .clinics_kernel_clinic #image {
   width: 50vw;
-  max-width: 500px;
+  max-width: 450px;
   padding: 1%;
   aspect-ratio: 3/2;
 }

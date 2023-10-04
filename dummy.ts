@@ -33,7 +33,7 @@ const services:service[] = [
     },
 ]
     
-const countries = ["Turkey","Germany","France","Italy","UK","USA","Austria","Spain","Hungary","Sweden","Netherlands","Belgium"];
+export const countries = ["Turkey","Germany","France","Italy","UK","USA","Austria","Spain","Hungary","Sweden","Netherlands","Belgium"];
     
 const generateRandomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
