@@ -44,7 +44,6 @@
   justify-content: flex-end;
   align-items: center;
   padding-right: 10vw;
-  height: calc(100vh - 80px);
   max-height: 800px;
 }
 .homie_motto img {

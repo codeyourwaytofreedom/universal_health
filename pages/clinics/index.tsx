@@ -1,31 +1,36 @@
 import Image from 'next/image'
 import Wrapper from '../../Components/Wrapper'
 import c from "../../styles/Clinics.module.css";
+import dental from "../../public/dentistry.jpg";
+import hairtransplant from "../../public/hairtransplant.jpg";
+import plasticsurgery from "../../public/plasticsurgery.jpg";
+import wloss from "../../public/wloss.jpg";
+
 
 const Clinics = () => {
     //const services = ["Dentistry", "Hair Transplant", "Laser Hair Removal","Plastic Surgery", "Weight Loss"];
     const services = [
         {
             seviceName:"Dental Clinics",
-            url:"/dentistry.jpg",
+            url:dental,
             alt:"dentistry",
             h2:["✔ Orthodontics","✔ Oral and maxillofacial surgery","✔ Periodontics","✔ Endodontics"]
         },
         {
             seviceName:"Hair Transplant",
-            url:"/hairtransplant.jpg",
+            url:hairtransplant,
             alt:"Hair Transplant",
             h2:["✔ Follicular Unit Transplantation","✔ Follicular Unit Extraction","✔ Robotic Hair Transplantation","✔ Scalp Micropigmentation (SMP)"]
         },
         {
             seviceName:"Plastic Surgery",
-            url:"/plasticsurgery.jpg",
+            url:plasticsurgery,
             alt:"Plastic Surgery",
             h2:["✔ Rhinoplasty (Nose Reshaping)","✔ Breast Augmentation","✔ Liposuction","✔ Facelift (Rhytidectomy)"]
         },
         {
             seviceName:"Weight Loss",
-            url:"/wloss.jpg",
+            url:wloss,
             alt:"Weight Loss",
             h2:["✔ Personalized Nutrition Plans","✔ Customized Exercise Programs","✔ Medical Weight Loss Programs","✔ Behavioral and Lifestyle Coaching"]
         },
@@ -41,7 +46,7 @@ const Clinics = () => {
                     { services.map((service,index)=>
                         <div className={c.clinics_kernel_clinic} key={index}>
                             <div id={c.image}>
-                                <Image width={750} height={500} alt={service.alt} src={service.url} priority={index === 0 ? true : false}/>
+                                <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false}/>
                             </div>
                             <div id={c.text}>
                                 <div>

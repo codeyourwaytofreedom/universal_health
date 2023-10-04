@@ -3,6 +3,8 @@ import { Inter } from '@next/font/google'
 import Wrapper from '../Components/Wrapper'
 import h from "../styles/Homie.module.css";
 import { useRouter } from 'next/navigation';
+import dr from "../public/dr.png";
+import dr1 from "../public/dr1.png";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,10 +23,10 @@ export default function Home() {
                 <h1>is so precious... <span></span> </h1>
                 <h1>SO YOU ARE! <span></span></h1>
               </div>
-              <Image width={600} height={600} alt={"medical"} src={"/dr.png"} priority/>
+              <Image alt={"medical"} src={dr} priority/>
           </div>
           <div className={h.homie_motto} id={h.left}>
-              <Image width={600} height={600} alt={"medical"} src={"/dr1.png"} priority/>
+              <Image alt={"medical"} src={dr1}/>
               <div id={h.hs}>
                 <h1>WE CARE <span></span> </h1>
                 <h1>ABOUT <span></span> </h1>

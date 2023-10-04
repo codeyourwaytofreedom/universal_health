@@ -106,7 +106,7 @@
 .error_kernel {
   border-top: 1px solid silver;
   overflow: hidden;
-  align-items: flex-start;
+  align-items: center;
 }
 .error_kernel_center {
   position: relative;

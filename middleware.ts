@@ -35,6 +35,7 @@ export async function middleware(req: NextRequest, res:NextResponse) {
         return NextResponse.redirect(redirectUrlHome);
       }
       if(!tokenPatient && !tokenMed){
+        redirectUrlHome.searchParams.append('warning', 'Login Required');
         return NextResponse.redirect(redirectUrlLogin);
       }
       await controlAccess(tokenPatient,process.env.JWT_SECRET_PATIENT,redirectUrlLogin)
@@ -48,6 +49,7 @@ export async function middleware(req: NextRequest, res:NextResponse) {
         return NextResponse.redirect(redirectUrlHome);
       }
       if(!tokenPatient && !tokenMed){
+        redirectUrlHome.searchParams.append('warning', 'Login Required');
         return NextResponse.redirect(redirectUrlLogin);
       }
       await controlAccess(tokenMed,process.env.JWT_SECRET_MED,redirectUrlLogin)
