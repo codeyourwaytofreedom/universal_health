@@ -5,6 +5,7 @@ import dental from "../../public/dentistry.jpg";
 import hairtransplant from "../../public/hairtransplant.jpg";
 import plasticsurgery from "../../public/plasticsurgery.jpg";
 import wloss from "../../public/wloss.jpg";
+import Link from 'next/link';
 
 
 const Clinics = () => {
@@ -46,11 +47,15 @@ const Clinics = () => {
                     { services.map((service,index)=>
                         <div className={c.clinics_kernel_clinic} key={index}>
                             <div id={c.image}>
-                                <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false}/>
+                                <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false} placeholder={"blur"}/>
                             </div>
                             <div id={c.text}>
                                 <div>
-                                    <h1>{service.seviceName}</h1>
+                                    <h1>
+                                        <Link href={`/clinics/${service.seviceName}`}>{service.seviceName}</Link>
+                                        <span id={c.line}></span>
+                                        <span id={c.icon}>&#128064;</span>
+                                    </h1>
                                     {
                                         service.h2.map((h2,iindex)=>
                                         <h2 key={iindex}>{h2}</h2>

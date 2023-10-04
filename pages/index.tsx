@@ -23,10 +23,10 @@ export default function Home() {
                 <h1>is so precious... <span></span> </h1>
                 <h1>SO YOU ARE! <span></span></h1>
               </div>
-              <Image alt={"medical"} src={dr} priority/>
+              <Image alt={"medical"} src={dr} priority placeholder={"blur"}/>
           </div>
           <div className={h.homie_motto} id={h.left}>
-              <Image alt={"medical"} src={dr1}/>
+              <Image alt={"medical"} src={dr1} placeholder={"blur"}/>
               <div id={h.hs}>
                 <h1>WE CARE <span></span> </h1>
                 <h1>ABOUT <span></span> </h1>

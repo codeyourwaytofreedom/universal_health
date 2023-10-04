@@ -17,6 +17,12 @@
   background-color: rgba(0, 128, 128, 0.4);
   width: 90vw;
 }
+.clinics_kernel_clinic:hover {
+  background-color: rgba(0, 128, 128, 0.6);
+}
+.clinics_kernel_clinic:hover img {
+  box-shadow: 2px 2px 3px 1px gray;
+}
 .clinics_kernel_clinic #image {
   width: 50vw;
   max-width: 500px;
@@ -40,6 +46,35 @@
 }
 .clinics_kernel_clinic #text h1 {
   font-size: 45px;
+  position: relative;
+  transition: color 0.2s ease;
+  text-shadow: -1px -1px black, -1px -1px gray;
+}
+.clinics_kernel_clinic #text h1 #line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  display: block;
+  background-color: gold;
+  transition: width 0.4s ease;
+}
+.clinics_kernel_clinic #text h1 #icon {
+  opacity: 0;
+  position: relative;
+  left: 10px;
+  transition: opacity 0.4s ease;
+  transition-delay: 0.2s;
+}
+.clinics_kernel_clinic #text h1:hover {
+  color: gold;
+}
+.clinics_kernel_clinic #text h1:hover #icon {
+  opacity: 1;
+}
+.clinics_kernel_clinic #text h1:hover #line {
+  width: 100%;
 }
 .clinics_kernel_clinic #text h2 {
   font-weight: 200;
