@@ -42,13 +42,27 @@ const Clinics = () => {
             h2:["✔ Personalized Nutrition Plans","✔ Customized Exercise Programs","✔ Medical Weight Loss Programs","✔ Behavioral and Lifestyle Coaching"]
         },
     ]
-    const [selections, setSelections] = useState({service:"",speciality:"",country:""});
+    const [selectedService, setSelectedService] = useState("");
+    const [selectedSpeciality, setSelectedSpeciality] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("");
+
+    const isButtonDisabled = selectedService.length === 0 || selectedSpeciality.length === 0 || selectedCountry.length === 0;
+
+
 
     const handleSelections = (event:ChangeEvent<HTMLSelectElement>,property:string) => {
-        setSelections(prevSelections => ({
-            ...prevSelections,
-            [property]: event.target.value
-          }));
+        if(property === "service"){
+            setSelectedService(event.target.value)
+            setSelectedSpeciality("") 
+            setSelectedCountry("")
+        }
+        else if(property === "speciality"){
+            setSelectedSpeciality(event.target.value);
+            setSelectedCountry("")
+        }
+        else{
+            setSelectedCountry(event.target.value)
+        }
     }
     return ( 
     <Wrapper title={"Clinics"} login={true}>
@@ -56,39 +70,40 @@ const Clinics = () => {
             <div className={c.filter_tabs}>
                 <div className={c.filter_tabs_kernel}>
                 <select onChange={(e)=>handleSelections(e,"service")}>
-                    <option value="">Service Category</option>
+                    <option value={""}>Service Category</option>
                     {
                         services.map((service, index)=>
                         <option key={index} value={service.seviceName}>{service.seviceName}</option>
                         )
                     }
                 </select>
-                <select disabled={selections.service.length === 0 ? true : false } onChange={(e)=>handleSelections(e,"speciality")}>
-                    <option value="">Speciality</option>
+                <select disabled={selectedService.length === 0 ? true : false } onChange={(e)=>handleSelections(e,"speciality")}>
+                    <option value={""}>Speciality</option>
                     <option key={1} value={"all"}>All specialities</option>
                     {
-                        services.find((s)=>s.seviceName === selections.service)?.h2.map((h2,i)=>
-                        <option key={i} value={h2}>{h2}</option>
+                        services.find((s)=>s.seviceName === selectedService)?.h2.map((h2,i)=>
+                        <option key={i} selected={selectedSpeciality === h2 ? true : false} value={h2}>{h2}</option>
                         )
                     }
                 </select>
-                <select disabled={selections.speciality.length === 0 ? true : false } onChange={(e)=>handleSelections(e,"country")}>
-                    <option value="">Country</option>
+                <select disabled={selectedSpeciality.length === 0 ? true : false } onChange={(e)=>handleSelections(e,"country")}>
+                    <option value={ ""}>Country</option>
                     <option key={2} value={"all"}>All countries</option>
                     {
                         countries.map((country,i)=>
-                        <option key={i} value={country}>{country}</option>
+                        <option key={i} selected={selectedCountry === country ? true : false} value={country}>{country}</option>
                         )
                     }
                 </select>
+                <button disabled={isButtonDisabled}>Show Results</button>
                 </div>
             </div>
         </div>
         <div className={c.clinics}>
             <div className={c.clinics_kernel}>
-                <h1>{selections.service}</h1>
-                <h1>{selections.speciality}</h1>
-                <h1>{selections.country}</h1>
+                <h1>{selectedService}</h1>
+                <h1>{selectedSpeciality}</h1>
+                <h1>{selectedCountry}</h1>
                     { services.map((service,index)=>
                         <div className={c.clinics_kernel_clinic} key={index}>
                             <div id={c.image}>
