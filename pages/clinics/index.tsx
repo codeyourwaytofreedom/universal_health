@@ -12,7 +12,7 @@ const Clinics = () => {
     //const services = ["Dentistry", "Hair Transplant", "Laser Hair Removal","Plastic Surgery", "Weight Loss"];
     const services = [
         {
-            seviceName:"Dental Clinics",
+            seviceName:"Dental Services",
             url:dental,
             alt:"dentistry",
             h2:["✔ Orthodontics","✔ Oral and maxillofacial surgery","✔ Periodontics","✔ Endodontics"]

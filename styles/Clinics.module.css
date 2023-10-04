@@ -22,6 +22,7 @@
 }
 .clinics_kernel_clinic:hover img {
   box-shadow: 2px 2px 3px 1px gray;
+  filter: brightness(1.1);
 }
 .clinics_kernel_clinic #image {
   width: 50vw;
