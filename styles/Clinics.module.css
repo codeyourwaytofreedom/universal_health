@@ -4,8 +4,7 @@
   padding-top: 80px;
 }
 .clinics_kernel {
-  border: 2px solid gold;
-  padding: 20px 0;
+  padding: 2vw 0;
   height: 100%;
   display: grid;
   justify-content: center;
@@ -16,8 +15,6 @@
   display: flex;
   align-items: center;
   background-color: rgba(0, 128, 128, 0.4);
-  -moz-column-gap: 4vw;
-       column-gap: 4vw;
   width: 90vw;
 }
 .clinics_kernel_clinic #image {
@@ -62,4 +59,79 @@
 
 #appointment {
   color: rgb(127, 189, 209);
+}
+
+@media (max-width: 991.98px) {
+  .clinics {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .clinics_kernel {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .clinics_kernel_clinic {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 255, 0.4);
+    width: 96vw;
+  }
+  .clinics_kernel_clinic #image {
+    width: 45vw;
+  }
+  .clinics_kernel_clinic #text {
+    width: 51vw;
+  }
+  .clinics_kernel_clinic #text h1 {
+    font-size: 4vw;
+  }
+  .clinics_kernel_clinic #text h2 {
+    font-size: 2.6vw;
+  }
+}
+@media (max-width: 767.98px) {
+  .clinics_kernel_clinic {
+    background-color: rgba(255, 0, 0, 0.4);
+  }
+  .clinics_kernel_clinic #text {
+    width: 51vw;
+  }
+  .clinics_kernel_clinic #text h1 {
+    font-size: 4.5vw;
+  }
+  .clinics_kernel_clinic #text h2 {
+    font-size: 3vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .clinics_kernel {
+    row-gap: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .clinics_kernel_clinic {
+    background-color: rgba(0, 128, 0, 0.4);
+    padding-top: 20px;
+    padding-bottom: 10px;
+    display: grid;
+    justify-items: center;
+    width: 100vw;
+  }
+  .clinics_kernel_clinic #image {
+    width: 90vw;
+    max-width: 400px;
+  }
+  .clinics_kernel_clinic #text {
+    width: 90vw;
+    max-width: 400px;
+    display: grid;
+    justify-content: flex-start;
+    padding-left: 2vw;
+  }
+  .clinics_kernel_clinic #text h1 {
+    font-size: 30px;
+  }
+  .clinics_kernel_clinic #text h2 {
+    font-size: 19px;
+  }
 }/*# sourceMappingURL=Clinics.module.css.map */

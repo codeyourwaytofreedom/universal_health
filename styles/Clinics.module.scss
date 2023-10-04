@@ -3,10 +3,8 @@
     padding: 0 2vw;
     min-height: 500px;
     padding-top: 80px;
-
     &_kernel{
-        border: 2px solid gold;
-        padding: 20px 0;
+        padding: 2vw 0;
         height: 100%;
         display: grid;
         justify-content: center;
@@ -16,7 +14,6 @@
             display: flex;
             align-items: center;
             background-color: rgba($color: #008080, $alpha: 0.4);
-            column-gap: 4vw;
             width: 90vw;
             #image{
                 width: 50vw;
@@ -57,3 +54,81 @@
 #appointment{
     color: rgb(127, 189, 209);
 }
+
+
+
+
+
+
+//RESPONSIVE
+@media (max-width: 991.98px) { 
+    .clinics{
+        padding-left: 0;
+        padding-right: 0;
+        &_kernel{
+            padding-left: 0;
+            padding-right: 0;
+            &_clinic{
+                display: flex;
+                align-items: center;
+                background-color: rgba($color: blue, $alpha: 0.4);
+                width: 96vw;
+                #image{
+                    width: 45vw;
+                }
+                #text{
+                    width: 51vw;
+                    h1{font-size: 4vw;}
+                    h2{font-size: 2.6vw;}
+                }
+            }
+        }
+    }
+ }
+
+@media (max-width: 767.98px) { 
+    .clinics{
+        &_kernel{
+            &_clinic{
+                background-color: rgba($color: red, $alpha: 0.4);
+                #text{
+                    width: 51vw;
+                    h1{font-size: 4.5vw;}
+                    h2{font-size: 3vw;}
+                }
+            }
+        }
+    }
+ }
+
+
+@media (max-width: 575.98px) { 
+    .clinics{
+        &_kernel{
+            row-gap: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            &_clinic{
+                background-color: rgba($color: green, $alpha: 0.4);
+                padding-top: 20px;
+                padding-bottom: 10px;
+                display: grid;
+                justify-items: center;
+                width: 100vw;
+                #image{
+                    width: 90vw;
+                    max-width: 400px;
+                }
+                #text{
+                    width: 90vw;
+                    max-width: 400px;
+                    h1{font-size: 30px;}
+                    h2{font-size: 19px;}
+                    display: grid;
+                    justify-content: flex-start;
+                    padding-left: 2vw;
+                }
+            }
+        }
+    }
+ }

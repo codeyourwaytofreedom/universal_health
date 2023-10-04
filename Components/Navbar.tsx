@@ -48,7 +48,7 @@ const Navbar = ({login}:{login:boolean}) => {
                     </button>
                     <button>
                         <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />
-                        <Link href={"/consultants"} id={n.tabname}>Consultants <span id={n.enlarge}></span></Link>
+                        <Link href={"/"} id={n.tabname}>Consultants <span id={n.enlarge}></span></Link>
                     </button>
                     {
                         login && !loggedIN &&
