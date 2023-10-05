@@ -52,6 +52,8 @@ const Clinics = () => {
     const [selectedSpeciality, setSelectedSpeciality] = useState("");
     const [selectedCountry, setSelectedCountry] = useState("");
     const [filteredResults,setFilteredResults] = useState<Clinic[] | undefined | null>();
+    const initialLoad = 10;
+    const [numberTOdisplay, setNumber] = useState(0);
 
 
     const isButtonDisabled = selectedService.length === 0 || selectedSpeciality.length === 0 || selectedCountry.length === 0;
@@ -74,6 +76,7 @@ const Clinics = () => {
     }
 
     const handleFilter = () => {
+        setNumber(0);
         const data = selectedService === "" ? null : 
         selectedService === "Dental Services" ? dental_clinics : 
         selectedService === "Hair Transplant" ? hair_transplant_clinics : 
@@ -83,23 +86,24 @@ const Clinics = () => {
         const filteredDataBYservice = selectedSpeciality === "all" ? data : data?.filter((clinic)=>clinic.servicesProvided.includes(selectedSpeciality));
         const filteredDataBYcountry = selectedCountry === "all" ? filteredDataBYservice : filteredDataBYservice?.filter((clinic)=>clinic.clinicLocation === selectedCountry);
         
+        
+        filteredDataBYcountry?.sort((a, b) => {
+            if (a.clinicLocation < b.clinicLocation) return -1;
+            if (a.clinicLocation > b.clinicLocation) return 1;
+            return 0;
+          });
         setFilteredResults(filteredDataBYcountry);
+        console.log(filteredDataBYcountry)
     }
 
-/*     useEffect(()=>{
-        const data = selectedService === "" ? null : 
-        selectedService === "Dental Services" ? dental_clinics : 
-        selectedService === "Hair Transplant" ? hair_transplant_clinics : 
-        selectedService === "Plastic Surgery" ? plastic_surgery_clinics :
-        wloss_clinics;
-        
-        const filteredDataBYservice = selectedSpeciality === "all" ? data : data?.filter((clinic)=>clinic.servicesProvided.includes(selectedSpeciality));
-        const filteredDataBYcountry = selectedCountry === "all" ? filteredDataBYservice : filteredDataBYservice?.filter((clinic)=>clinic.clinicLocation === selectedCountry);
-        
-        console.log(filteredDataBYservice);
-        console.log(filteredDataBYcountry);
-
-    },[selectedService,selectedCountry,selectedSpeciality]) */
+    const handleNumber = () => {
+        if(numberTOdisplay + initialLoad + 5 < filteredResults!.length){
+            setNumber(pr=> pr+5)
+        }
+        else if((numberTOdisplay+initialLoad+5 > filteredResults!.length && numberTOdisplay < filteredResults!.length)){
+            setNumber(filteredResults!.length)
+        }
+    }
 
     return ( 
     <Wrapper title={"Clinics"} login={true}>
@@ -140,8 +144,8 @@ const Clinics = () => {
             <div className={c.clinics_kernel}>
 {/*                 <h1>{selectedService}</h1>
                 <h1>{selectedSpeciality}</h1>
-                <h1>{selectedCountry}</h1>
-                <h1>{filteredResults?.length}</h1> */}
+                <h1>{selectedCountry}</h1> */}
+                <h1>{filteredResults?.length}</h1>
                 {!filteredResults && services.map((service,index)=>
                     <div className={c.clinics_kernel_clinic} key={index}>
                         <div id={c.image}>
@@ -167,7 +171,7 @@ const Clinics = () => {
                 {
                     filteredResults &&
                     <div className={c.clinics_kernel_results}>
-                    {   filteredResults.map((result,index)=>
+                    {   filteredResults.slice(0,initialLoad+numberTOdisplay).map((result,index)=>
                         <Link href={`/clinics/aa}`}>
                             <div className={c.clinics_kernel_results_holder}>
                                 <Image alt={"health service"} src={providerImage} priority={index === 0 ? true : false} placeholder={"blur"}/>
@@ -178,6 +182,11 @@ const Clinics = () => {
                             </div>
                         </Link>
                     )}  
+                    {
+                        filteredResults.length > initialLoad && numberTOdisplay !== filteredResults?.length && 
+                        <button onClick={handleNumber}> +{filteredResults.length - numberTOdisplay - initialLoad} more</button>
+                    }
+                    
                     </div>
                 }
                

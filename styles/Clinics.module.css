@@ -121,6 +121,12 @@
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.clinics_kernel_results button {
+  background-color: gold;
+  font-size: 45px;
+  border-radius: 10px;
+  height: 100px;
+}
 .clinics_kernel_results_holder {
   display: flex;
   -moz-column-gap: 10px;
@@ -128,7 +134,7 @@
   align-items: center;
   padding: 1vw 2vw;
   background-color: rgba(128, 128, 128, 0.2);
-  box-shadow: 0px 0px 3px 1px gray;
+  box-shadow: 1px 1px 3px 1px gray;
 }
 .clinics_kernel_results_holder img {
   width: 15vw;
