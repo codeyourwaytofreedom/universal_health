@@ -85,7 +85,6 @@ const Login = () => {
                     <div id={l.who}>
                         <input type={"radio"} name={"yy" } onChange={handleCheck} defaultChecked value={"patient"}/><span>Patient</span>
                         <input type={"radio"} name={"yy"} onChange={handleCheck} value={"consultant"}/><span>Consultant</span>
-                        <span>{who}</span>
                     </div>
                     <form>
                         <div className={l.login_kernel_shell_line}>

@@ -150,7 +150,7 @@ const Clinics = () => {
                 {
                     filteredResults?.length === 0 &&
                     <div id={c.warning}>
-                        <Image alt={"not found"} src={sad} placeholder={"blur"}/>
+                        <Image alt={"not found"} src={sad}/>
                         <h1>No clinics meeting search criteria</h1>
                     </div>
                 }
