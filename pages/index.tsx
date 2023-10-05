@@ -10,11 +10,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const router = useRouter();
+  const handleQuickAppointmentClick = () => {
+    router.push("/appointment");
+  };
   return (
     <>
       <Wrapper title={null} login={true}>
         <div className={h.homie}>
-          <div id={h.quick} onClick={()=>router.push("/appointment")}> <span>&#128508;</span> QUICK APPOINTMENT</div>
+          <div id={h.quick} onClick={handleQuickAppointmentClick}> <span>&#128508;</span> QUICK APPOINTMENT</div>
           <div className={h.homie_motto}>
               <div id={h.hs}>
                 <h1>EVERY MOMENT<span></span> </h1>
