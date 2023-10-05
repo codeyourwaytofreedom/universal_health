@@ -20,6 +20,11 @@
             column-gap: 2vw;
             flex-wrap:wrap;
             select{
+                width: 200px;
+                &:disabled{
+                    width: 200px;
+                    opacity: 1;
+                }
             }
         }
     }
@@ -30,15 +35,14 @@
     min-height: 500px;
     padding-top: 80px;
     position: relative;
-    top:-200px;
     &_kernel{
         position: relative;
         padding: 2vw 0;
-        padding-top: calc(200px + 2vw);
         display: grid;
         justify-content: center;
         align-items: flex-start;
         row-gap: 20px;
+        padding-top: 0;
         &_clinic{
             display: flex;
             align-items: center;

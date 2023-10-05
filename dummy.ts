@@ -11,25 +11,25 @@ const services:service[] = [
         seviceName:"Dental Services",
         url:"dental",
         alt:"dentistry",
-        h2:["✔ Orthodontics","✔ Oral and maxillofacial surgery","✔ Periodontics","✔ Endodontics"]
+        h2:["Orthodontics","Oral and maxillofacial surgery","Periodontics","Endodontics"]
     },
     {
         seviceName:"Hair Transplant",
         url:"hairtransplant",
         alt:"Hair Transplant",
-        h2:["✔ Follicular Unit Transplantation","✔ Follicular Unit Extraction","✔ Robotic Hair Transplantation","✔ Scalp Micropigmentation (SMP)"]
+        h2:["Follicular Unit Transplantation","Follicular Unit Extraction","Robotic Hair Transplantation","Scalp Micropigmentation (SMP)"]
     },
     {
         seviceName:"Plastic Surgery",
         url:"plasticsurgery",
         alt:"Plastic Surgery",
-        h2:["✔ Rhinoplasty (Nose Reshaping)","✔ Breast Augmentation","✔ Liposuction","✔ Facelift (Rhytidectomy)"]
+        h2:["Rhinoplasty (Nose Reshaping)","Breast Augmentation","Liposuction","Facelift (Rhytidectomy)"]
     },
     {
         seviceName:"Weight Loss",
         url:"wloss",
         alt:"Weight Loss",
-        h2:["✔ Personalized Nutrition Plans","✔ Customized Exercise Programs","✔ Medical Weight Loss Programs","✔ Behavioral and Lifestyle Coaching"]
+        h2:["Personalized Nutrition Plans","Customized Exercise Programs","Medical Weight Loss Programs","Behavioral and Lifestyle Coaching"]
     },
 ]
     
@@ -68,9 +68,10 @@ const dummyMaker = (service:service,howmany:number) => {
     return output;
 }
 
-export const dental_clinics = dummyMaker(services[0],40);
-export const hair_transplant_clinics = dummyMaker(services[1],40);
-export const plastic_surgery_clinics = dummyMaker(services[2],40);
-export const wloss_clinics = dummyMaker(services[3],40);
+const howmany = 50;
+export const dental_clinics = dummyMaker(services[0],howmany);
+export const hair_transplant_clinics = dummyMaker(services[1],howmany);
+export const plastic_surgery_clinics = dummyMaker(services[2],howmany);
+export const wloss_clinics = dummyMaker(services[3],howmany);
 
     

@@ -23,21 +23,28 @@
        column-gap: 2vw;
   flex-wrap: wrap;
 }
+.filter_tabs_kernel select {
+  width: 200px;
+}
+.filter_tabs_kernel select:disabled {
+  width: 200px;
+  opacity: 1;
+}
+
 .clinics {
   padding: 0 2vw;
   min-height: 500px;
   padding-top: 80px;
   position: relative;
-  top: -200px;
 }
 .clinics_kernel {
   position: relative;
   padding: 2vw 0;
-  padding-top: calc(200px + 2vw);
   display: grid;
   justify-content: center;
   align-items: flex-start;
   row-gap: 20px;
+  padding-top: 0;
 }
 .clinics_kernel_clinic {
   display: flex;
