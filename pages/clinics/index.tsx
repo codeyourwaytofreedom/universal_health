@@ -15,6 +15,8 @@ import { countries } from '../../dummy';
 import { useState,ChangeEvent, useEffect } from 'react';
 import Clinic_holder from '../../Components/Clinic_holder';
 import providerImage from "../../public/provider.png";
+import sad from "../../public/sad.png";
+
 type Clinic = {
     clinicCategory:string,
     clinicName:string,
@@ -59,6 +61,7 @@ const Clinics = () => {
     const isButtonDisabled = selectedService.length === 0 || selectedSpeciality.length === 0 || selectedCountry.length === 0;
     const isSpecialityDisabled = selectedService.length === 0 ? true : false;
     const isCountryDisabled = selectedSpeciality.length === 0 ? true : false;
+    const isCategoriesVisible = !filteredResults ? true : filteredResults.length === 0 ? true : false;
 
     const handleSelections = (event:ChangeEvent<HTMLSelectElement>,property:string) => {
         if(property === "service"){
@@ -145,16 +148,22 @@ const Clinics = () => {
 {/*                 <h1>{selectedService}</h1>
                 <h1>{selectedSpeciality}</h1>
                 <h1>{selectedCountry}</h1> */}
-                <h1>{filteredResults?.length}</h1>
-                {!filteredResults && services.map((service,index)=>
-                    <div className={c.clinics_kernel_clinic} key={index}>
+                {
+                    filteredResults?.length === 0 &&
+                    <div id={c.warning}>
+                        <Image alt={"not found"} src={sad} placeholder={"blur"}/>
+                        <h1>No clinics meeting search criteria</h1>
+                    </div>
+                }
+                {isCategoriesVisible  && services.map((service,index)=>
+                    <Link href={`/clinics/${service.seviceName}`}><div className={c.clinics_kernel_clinic} key={index}>
                         <div id={c.image}>
                             <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false} placeholder={"blur"}/>
                         </div>
                         <div id={c.text}>
                             <div>
                                 <h1>
-                                    <Link href={`/clinics/${service.seviceName}`}>{service.seviceName}</Link>
+                                    {service.seviceName}
                                     <span id={c.line}></span>
                                     <span id={c.icon}>&#128064;</span>
                                 </h1>
@@ -165,14 +174,14 @@ const Clinics = () => {
                                 }
                             </div>
                         </div>
-                    </div>
+                    </div></Link>
                 )}    
 
                 {
                     filteredResults &&
                     <div className={c.clinics_kernel_results}>
                     {   filteredResults.slice(0,initialLoad+numberTOdisplay).map((result,index)=>
-                        <Link href={`/clinics/aa}`}>
+                        <Link href={`/clinics/aa}`} key={index}>
                             <div className={c.clinics_kernel_results_holder}>
                                 <Image alt={"health service"} src={providerImage} priority={index === 0 ? true : false} placeholder={"blur"}/>
                                 <div id={c.text}>

@@ -39,23 +39,35 @@
         position: relative;
         padding: 2vw 0;
         display: grid;
-        justify-content: center;
+        justify-items: center;
         align-items: flex-start;
         //row-gap: 20px;
-        padding-top: 20px;
+        padding-top: 10px;
+        #warning{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 20px;
+            color: crimson;
+            margin-bottom: 10px;
+            h1{
+                font-weight: 200;
+            }
+            img{
+                object-fit: contain;
+                height: 100px;
+                width: auto;
+                filter: brightness(1.5);
+            }
+        }
         &_clinic{
             display: flex;
             align-items: center;
             background-color: rgba($color: #008080, $alpha: 0.4);
             width: 80vw;
             margin-bottom: 20px;
-            &:hover{
-                background-color: rgba($color: #008080, $alpha: 1);
-                img{
-                    box-shadow: 2px 2px 3px 1px gray;
-                    filter: brightness(1.1);
-                }
-            }
+            border-radius: 5px;
+            cursor: pointer;
             #image{
                 width: 50vw;
                 max-width: 450px;
@@ -94,18 +106,31 @@
                         transition: opacity 0.4s ease;
                         transition-delay: 0.2s;
                     }
-                    &:hover{
-                        color:gold;
+                }
+                h2{font-weight: 200;}
+                height: fit-content;
+            }
+            &:hover{
+                background-color: rgba($color: #008080, $alpha: 1);
+                img{
+                    box-shadow: 2px 2px 3px 1px gray;
+                    filter: brightness(1.1);
+                }
+                #text{
+                    display: grid;
+                    width: 40vw;
+                    justify-content: center;
+                    h1{
+                        color: gold;
                         #icon{
                             opacity: 1;
                         }
                         #line{
                             width: 100%;
                         }
+                        
                     }
                 }
-                h2{font-weight: 200;}
-                height: fit-content;
             }
         }
         &_results{
@@ -178,7 +203,6 @@
             &_clinic{
                 display: flex;
                 align-items: center;
-                background-color: rgba($color: blue, $alpha: 0.4);
                 width: 96vw;
                 #image{
                     width: 45vw;
@@ -214,7 +238,6 @@
     .clinics{
         &_kernel{
             &_clinic{
-                background-color: rgba($color: red, $alpha: 0.4);
                 #text{
                     width: 51vw;
                     h1{font-size: 4.5vw;}
@@ -252,13 +275,18 @@
             row-gap: 0;
             padding-top: 0;
             padding-bottom: 0;
+            #warning{
+                display: grid;
+                justify-items: center;
+                font-size: 3vw;
+                margin-bottom: 0;
+            }
             &_clinic{
-                background-color: rgba($color: green, $alpha: 0.4);
                 padding-top: 20px;
                 padding-bottom: 10px;
                 display: grid;
                 justify-items: center;
-                width: 100vw;
+                width: 90vw;
                 #image{
                     width: 90vw;
                     max-width: 400px;
@@ -276,13 +304,6 @@
             &_results{
                 padding-top: 20px;
                 gap: 15px;
-                &_holder{
-                    img{
-                    }
-                    #text{
-
-                    }
-                }
             }
         }
     }

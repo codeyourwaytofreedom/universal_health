@@ -41,9 +41,28 @@
   position: relative;
   padding: 2vw 0;
   display: grid;
-  justify-content: center;
+  justify-items: center;
   align-items: flex-start;
-  padding-top: 20px;
+  padding-top: 10px;
+}
+.clinics_kernel #warning {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  color: crimson;
+  margin-bottom: 10px;
+}
+.clinics_kernel #warning h1 {
+  font-weight: 200;
+}
+.clinics_kernel #warning img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100px;
+  width: auto;
+  filter: brightness(1.5);
 }
 .clinics_kernel_clinic {
   display: flex;
@@ -51,13 +70,8 @@
   background-color: rgba(0, 128, 128, 0.4);
   width: 80vw;
   margin-bottom: 20px;
-}
-.clinics_kernel_clinic:hover {
-  background-color: teal;
-}
-.clinics_kernel_clinic:hover img {
-  box-shadow: 2px 2px 3px 1px gray;
-  filter: brightness(1.1);
+  border-radius: 5px;
+  cursor: pointer;
 }
 .clinics_kernel_clinic #image {
   width: 50vw;
@@ -103,17 +117,29 @@
   transition: opacity 0.4s ease;
   transition-delay: 0.2s;
 }
-.clinics_kernel_clinic #text h1:hover {
-  color: gold;
-}
-.clinics_kernel_clinic #text h1:hover #icon {
-  opacity: 1;
-}
-.clinics_kernel_clinic #text h1:hover #line {
-  width: 100%;
-}
 .clinics_kernel_clinic #text h2 {
   font-weight: 200;
+}
+.clinics_kernel_clinic:hover {
+  background-color: teal;
+}
+.clinics_kernel_clinic:hover img {
+  box-shadow: 2px 2px 3px 1px gray;
+  filter: brightness(1.1);
+}
+.clinics_kernel_clinic:hover #text {
+  display: grid;
+  width: 40vw;
+  justify-content: center;
+}
+.clinics_kernel_clinic:hover #text h1 {
+  color: gold;
+}
+.clinics_kernel_clinic:hover #text h1 #icon {
+  opacity: 1;
+}
+.clinics_kernel_clinic:hover #text h1 #line {
+  width: 100%;
 }
 .clinics_kernel_results {
   width: 90vw;
@@ -184,7 +210,6 @@
   .clinics_kernel_clinic {
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 255, 0.4);
     width: 96vw;
   }
   .clinics_kernel_clinic #image {
@@ -216,9 +241,6 @@
   }
 }
 @media (max-width: 767.98px) {
-  .clinics_kernel_clinic {
-    background-color: rgba(255, 0, 0, 0.4);
-  }
   .clinics_kernel_clinic #text {
     width: 51vw;
   }
@@ -253,13 +275,18 @@
     padding-top: 0;
     padding-bottom: 0;
   }
+  .clinics_kernel #warning {
+    display: grid;
+    justify-items: center;
+    font-size: 3vw;
+    margin-bottom: 0;
+  }
   .clinics_kernel_clinic {
-    background-color: rgba(0, 128, 0, 0.4);
     padding-top: 20px;
     padding-bottom: 10px;
     display: grid;
     justify-items: center;
-    width: 100vw;
+    width: 90vw;
   }
   .clinics_kernel_clinic #image {
     width: 90vw;
