@@ -36,14 +36,6 @@
   font-size: large;
   font-weight: 600;
 }
-.navbar_kernel_logo_text {
-  z-index: 999 !important;
-  color: whitesmoke;
-  text-shadow: -1px -1px 2px rgb(206, 77, 160), 1px 1px 2px rgb(206, 77, 160);
-  position: relative;
-  top: 55px;
-  left: 50px;
-}
 .navbar_kernel_logo img {
   position: absolute;
   top: 10px;
@@ -100,6 +92,19 @@
           animation: grow 0.5s forwards;
 }
 
+@media (max-width: 575.98px) {
+  .navbar_kernel video {
+    width: 150px;
+    height: 60px;
+  }
+  .navbar_kernel_logo img {
+    height: 50px;
+    width: auto;
+  }
+  .navbar_kernel_tabs button #tabname #mobilhide {
+    display: none;
+  }
+}
 @-webkit-keyframes grow {
   from {
     width: 0;
@@ -108,7 +113,6 @@
     width: 100%;
   }
 }
-
 @keyframes grow {
   from {
     width: 0;

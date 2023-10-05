@@ -133,8 +133,8 @@ const Clinics = () => {
                     }
                 </select>
                 <select disabled={isCountryDisabled} onChange={(e)=>handleSelections(e,"country")}>
-                    <option value={""} selected={selectedCountry === "all" ? true : false}>Country</option>
-                    <option key={2} value={"all"}>All countries</option>
+                    <option value={""}>Country</option>
+                    <option key={2} value={"all"} selected={selectedCountry === "all" ? true : false}>All countries</option>
                     {
                         countries.map((country,i)=>
                         <option key={i} selected={selectedCountry === country ? true : false} value={country}>{country}</option>
@@ -155,7 +155,7 @@ const Clinics = () => {
                     </div>
                 }
                 {isCategoriesVisible  && services.map((service,index)=>
-                    <Link href={`/clinics/${service.seviceName}`} key={index}><div className={c.clinics_kernel_clinic}>
+                    <Link href={`/clinics/category?name=${service.seviceName}`} key={index}><div className={c.clinics_kernel_clinic}>
                         <div id={c.image}>
                             <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false} placeholder={"blur"}/>
                         </div>
@@ -180,7 +180,7 @@ const Clinics = () => {
                     filteredResults &&
                     <div className={c.clinics_kernel_results}>
                     {   filteredResults.slice(0,initialLoad+numberTOdisplay).map((result,index)=>
-                        <Link href={`/clinics/aa}`} key={index}>
+                        <Link href={`/clinics/clinic?name=${result.clinicName}`} key={index}>
                             <div className={c.clinics_kernel_results_holder}>
                                 <Image alt={"health service"} src={providerImage} priority={index === 0 ? true : false} placeholder={"blur"}/>
                                 <div id={c.text}>

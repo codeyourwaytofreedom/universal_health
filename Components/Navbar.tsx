@@ -44,24 +44,24 @@ const Navbar = ({login}:{login:boolean}) => {
                 <div className={n.navbar_kernel_tabs}>
                     <button>
                         <Image width={25} height={25} alt={"clinic"} src={"/clinic.png"} />
-                        <Link href={"/clinics"} id={n.tabname}>Clinics <span id={n.enlarge}></span></Link>
+                        <Link href={"/clinics"} id={n.tabname}> <span id={n.mobilhide}>Clinics</span> <span id={n.enlarge}></span></Link>
                     </button>
                     <button>
                         <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />
-                        <Link href={"/"} id={n.tabname}>Consultants <span id={n.enlarge}></span></Link>
+                        <Link href={"/"} id={n.tabname}> <span id={n.mobilhide}>Consultants</span> <span id={n.enlarge}></span></Link>
                     </button>
                     {
                         login && !loggedIN &&
                         <button>
                             <Image width={25} height={25} alt={"login"} src={"/login.png"} />
-                            <Link href={"/login"} id={n.tabname}>Login <span id={n.enlarge}></span></Link>
+                            <Link href={"/login"} id={n.tabname}> <span id={n.mobilhide}>Login</span> <span id={n.enlarge}></span></Link>
                         </button>
                     }
                     {
                         loggedIN &&
                         <button onClick={handle_Logout}>
                             <Image width={25} height={25} alt={"logout"} src={"/logout.png"} />
-                            <div id={n.tabname}>Logout <span id={n.enlarge}></span></div>
+                            <div id={n.tabname}> <span id={n.mobilhide}>Logout</span>  <span id={n.enlarge}></span></div>
                         </button>
                     }
                 </div>
