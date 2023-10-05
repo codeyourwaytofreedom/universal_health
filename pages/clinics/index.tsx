@@ -156,7 +156,7 @@ const Clinics = () => {
                     </div>
                 }
                 {isCategoriesVisible  && services.map((service,index)=>
-                    <Link href={`/clinics/${service.seviceName}`}><div className={c.clinics_kernel_clinic} key={index}>
+                    <Link href={`/clinics/${service.seviceName}`} key={index}><div className={c.clinics_kernel_clinic}>
                         <div id={c.image}>
                             <Image alt={service.alt} src={service.url} priority={index === 0 ? true : false} placeholder={"blur"}/>
                         </div>
