@@ -41,13 +41,14 @@
         display: grid;
         justify-content: center;
         align-items: flex-start;
-        row-gap: 20px;
-        padding-top: 0;
+        //row-gap: 20px;
+        padding-top: 20px;
         &_clinic{
             display: flex;
             align-items: center;
             background-color: rgba($color: #008080, $alpha: 0.4);
             width: 80vw;
+            margin-bottom: 20px;
             &:hover{
                 background-color: rgba($color: #008080, $alpha: 1);
                 img{
@@ -107,6 +108,35 @@
                 height: fit-content;
             }
         }
+        &_results{
+            width: 90vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            &_holder{
+                display: flex;
+                column-gap: 10px;
+                align-items: center;
+                padding: 1vw 2vw;
+                background-color: rgba($color: gray, $alpha: 0.2);
+                box-shadow: 0px 0px 3px 1px gray;
+                img{
+                    width: 15vw;
+                    max-width: 200px;
+                    height: auto;
+                    object-fit: cover;
+                    filter: brightness(1.2);
+                }
+                #text{
+                    width: 100%;
+                    display: grid;
+                    justify-content: center;
+                    height: fit-content;
+                    h2{font-weight: 200;}
+                }
+            }
+        }
+
     }
 }
 
@@ -153,6 +183,23 @@
                     h2{font-size: 2.6vw;}
                 }
             }
+            &_results{
+                gap: 10px;
+                &_holder{
+                    padding: 1vw;
+                    img{
+                        max-width: 100px;
+                    }
+                    #text{
+                        h1{
+                            font-size: 3vw;
+                        }
+                        h2{
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+            }
         }
     }
  }
@@ -166,6 +213,26 @@
                     width: 51vw;
                     h1{font-size: 4.5vw;}
                     h2{font-size: 3vw;}
+                }
+            }
+            &_results{
+                grid-template-columns: 1fr;
+                justify-items: center;
+                &_holder{
+                    width: 90vw;
+                    max-width: 500px;
+                    img{
+                        width: 25vw;
+                        max-width: unset;
+                    }
+                    #text{
+                        h1{
+                            font-size: 25px;
+                        }
+                        h2{
+                            font-size: 21px;
+                        }
+                    }
                 }
             }
         }
@@ -198,6 +265,17 @@
                     display: grid;
                     justify-content: flex-start;
                     padding-left: 2vw;
+                }
+            }
+            &_results{
+                padding-top: 20px;
+                gap: 15px;
+                &_holder{
+                    img{
+                    }
+                    #text{
+
+                    }
                 }
             }
         }

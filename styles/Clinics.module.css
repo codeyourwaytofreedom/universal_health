@@ -43,14 +43,14 @@
   display: grid;
   justify-content: center;
   align-items: flex-start;
-  row-gap: 20px;
-  padding-top: 0;
+  padding-top: 20px;
 }
 .clinics_kernel_clinic {
   display: flex;
   align-items: center;
   background-color: rgba(0, 128, 128, 0.4);
   width: 80vw;
+  margin-bottom: 20px;
 }
 .clinics_kernel_clinic:hover {
   background-color: teal;
@@ -115,6 +115,40 @@
 .clinics_kernel_clinic #text h2 {
   font-weight: 200;
 }
+.clinics_kernel_results {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.clinics_kernel_results_holder {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+  padding: 1vw 2vw;
+  background-color: rgba(128, 128, 128, 0.2);
+  box-shadow: 0px 0px 3px 1px gray;
+}
+.clinics_kernel_results_holder img {
+  width: 15vw;
+  max-width: 200px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(1.2);
+}
+.clinics_kernel_results_holder #text {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.clinics_kernel_results_holder #text h2 {
+  font-weight: 200;
+}
 
 #mypatients, #appointment {
   height: 100vh;
@@ -159,6 +193,21 @@
   .clinics_kernel_clinic #text h2 {
     font-size: 2.6vw;
   }
+  .clinics_kernel_results {
+    gap: 10px;
+  }
+  .clinics_kernel_results_holder {
+    padding: 1vw;
+  }
+  .clinics_kernel_results_holder img {
+    max-width: 100px;
+  }
+  .clinics_kernel_results_holder #text h1 {
+    font-size: 3vw;
+  }
+  .clinics_kernel_results_holder #text h2 {
+    font-size: 2.5vw;
+  }
 }
 @media (max-width: 767.98px) {
   .clinics_kernel_clinic {
@@ -172,6 +221,24 @@
   }
   .clinics_kernel_clinic #text h2 {
     font-size: 3vw;
+  }
+  .clinics_kernel_results {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .clinics_kernel_results_holder {
+    width: 90vw;
+    max-width: 500px;
+  }
+  .clinics_kernel_results_holder img {
+    width: 25vw;
+    max-width: unset;
+  }
+  .clinics_kernel_results_holder #text h1 {
+    font-size: 25px;
+  }
+  .clinics_kernel_results_holder #text h2 {
+    font-size: 21px;
   }
 }
 @media (max-width: 575.98px) {
@@ -204,5 +271,9 @@
   }
   .clinics_kernel_clinic #text h2 {
     font-size: 19px;
+  }
+  .clinics_kernel_results {
+    padding-top: 20px;
+    gap: 15px;
   }
 }/*# sourceMappingURL=Clinics.module.css.map */

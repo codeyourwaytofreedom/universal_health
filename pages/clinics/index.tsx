@@ -13,7 +13,8 @@ import { plastic_surgery_clinics } from '../../dummy';
 import { wloss_clinics } from '../../dummy';
 import { countries } from '../../dummy';
 import { useState,ChangeEvent, useEffect } from 'react';
-
+import Clinic_holder from '../../Components/Clinic_holder';
+import providerImage from "../../public/provider.png";
 type Clinic = {
     clinicCategory:string,
     clinicName:string,
@@ -137,10 +138,10 @@ const Clinics = () => {
         </div>
         <div className={c.clinics}>
             <div className={c.clinics_kernel}>
-                <h1>{selectedService}</h1>
+{/*                 <h1>{selectedService}</h1>
                 <h1>{selectedSpeciality}</h1>
                 <h1>{selectedCountry}</h1>
-                <h1>{filteredResults?.length}</h1>
+                <h1>{filteredResults?.length}</h1> */}
                 {!filteredResults && services.map((service,index)=>
                     <div className={c.clinics_kernel_clinic} key={index}>
                         <div id={c.image}>
@@ -161,8 +162,25 @@ const Clinics = () => {
                             </div>
                         </div>
                     </div>
-                )}                    
+                )}    
 
+                {
+                    filteredResults &&
+                    <div className={c.clinics_kernel_results}>
+                    {   filteredResults.map((result,index)=>
+                        <Link href={`/clinics/aa}`}>
+                            <div className={c.clinics_kernel_results_holder}>
+                                <Image alt={"health service"} src={providerImage} priority={index === 0 ? true : false} placeholder={"blur"}/>
+                                <div id={c.text}>
+                                    <h1>{result.clinicName}</h1>
+                                    <h2>&#128204; {result.clinicLocation}</h2>
+                                </div>
+                            </div>
+                        </Link>
+                    )}  
+                    </div>
+                }
+               
             </div>
         </div>
     </Wrapper>
