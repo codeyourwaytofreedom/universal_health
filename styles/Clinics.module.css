@@ -1,34 +1,58 @@
 .filter {
-  height: 200px;
+  height: 220px;
   background-color: black;
   position: relative;
   top: 80px;
 }
 .filter_tabs {
-  display: flex;
+  display: grid;
   justify-content: center;
   position: relative;
 }
 .filter_tabs_kernel {
-  width: 90vw;
-  background-color: #008080;
+  width: 95vw;
   position: relative;
   height: 120px;
-  top: 40px;
+  top: 50px;
   z-index: 99;
   display: flex;
   justify-content: center;
-  align-items: center;
-  -moz-column-gap: 2vw;
-       column-gap: 2vw;
+  align-items: flex-start;
+  -moz-column-gap: 1vw;
+       column-gap: 1vw;
   flex-wrap: wrap;
+  padding-top: 20px;
 }
 .filter_tabs_kernel select {
-  width: 200px;
+  width: 30vw;
+  max-width: 400px;
+  font-size: medium;
+  background-color: black;
+  color: whitesmoke;
+  padding: 5px;
+  border: none;
+  box-shadow: 0px 0px 3px 1px whitesmoke;
 }
 .filter_tabs_kernel select:disabled {
-  width: 200px;
   opacity: 1;
+}
+.filter_tabs_kernel button {
+  position: absolute;
+  width: 30vw;
+  max-width: 400px;
+  border-radius: 5px;
+  padding: 5px 0;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  bottom: 0px;
+  font-size: medium;
+  background-color: rgba(255, 215, 0, 0.9);
+}
+.filter_tabs_kernel button:disabled {
+  background-color: gray;
+  color: whitesmoke;
 }
 
 .clinics {
@@ -121,16 +145,11 @@
   font-weight: 200;
 }
 .clinics_kernel_clinic:hover {
-  background-color: teal;
+  box-shadow: 0px 0px 3px 2px black;
 }
 .clinics_kernel_clinic:hover img {
-  box-shadow: 2px 2px 3px 1px gray;
+  box-shadow: 2px 2px 3px 1px black;
   filter: brightness(1.1);
-}
-.clinics_kernel_clinic:hover #text {
-  display: grid;
-  width: 40vw;
-  justify-content: center;
 }
 .clinics_kernel_clinic:hover #text h1 {
   color: gold;
@@ -168,7 +187,6 @@
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  filter: brightness(1.2);
 }
 .clinics_kernel_results_holder #text {
   width: 100%;
@@ -180,6 +198,13 @@
 }
 .clinics_kernel_results_holder #text h2 {
   font-weight: 200;
+}
+.clinics_kernel_results_holder:hover {
+  box-shadow: 1px 1px 3px 1px gray;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+.clinics_kernel_results_holder:hover img {
+  filter: brightness(1.35);
 }
 
 #mypatients, #appointment {
@@ -270,9 +295,27 @@
   }
 }
 @media (max-width: 575.98px) {
+  .filter {
+    height: 200px;
+  }
+  .filter_tabs_kernel {
+    background-color: black;
+    height: 120px;
+    top: 20px;
+    display: grid;
+    row-gap: 5px;
+    padding-top: 0;
+  }
+  .filter_tabs_kernel select {
+    width: 80vw;
+  }
+  .filter_tabs_kernel button {
+    width: 80vw;
+    bottom: -50px;
+  }
   .clinics_kernel {
     row-gap: 0;
-    padding-top: 0;
+    padding-top: 10px;
     padding-bottom: 0;
   }
   .clinics_kernel #warning {

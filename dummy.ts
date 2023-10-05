@@ -68,7 +68,7 @@ const dummyMaker = (service:service,howmany:number) => {
     return output;
 }
 
-const howmany = 80;
+const howmany = 30;
 export const dental_clinics = dummyMaker(services[0],howmany);
 export const hair_transplant_clinics = dummyMaker(services[1],howmany);
 export const plastic_surgery_clinics = dummyMaker(services[2],howmany);

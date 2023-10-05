@@ -62,6 +62,8 @@ const Clinics = () => {
     const isSpecialityDisabled = selectedService.length === 0 ? true : false;
     const isCountryDisabled = selectedSpeciality.length === 0 ? true : false;
     const isCategoriesVisible = !filteredResults ? true : filteredResults.length === 0 ? true : false;
+    const isButtonVisible = filteredResults && filteredResults.length > initialLoad && numberTOdisplay !== filteredResults?.length
+    && (filteredResults.length - numberTOdisplay - initialLoad) !== 0;
 
     const handleSelections = (event:ChangeEvent<HTMLSelectElement>,property:string) => {
         if(property === "service"){
@@ -100,7 +102,7 @@ const Clinics = () => {
     }
 
     const handleNumber = () => {
-        if(numberTOdisplay + initialLoad + 5 < filteredResults!.length){
+        if(numberTOdisplay + initialLoad + 5 < filteredResults!.length || numberTOdisplay + initialLoad + 5 === filteredResults!.length){
             setNumber(pr=> pr+5)
         }
         else if((numberTOdisplay+initialLoad+5 > filteredResults!.length && numberTOdisplay < filteredResults!.length)){
@@ -145,9 +147,6 @@ const Clinics = () => {
         </div>
         <div className={c.clinics}>
             <div className={c.clinics_kernel}>
-{/*                 <h1>{selectedService}</h1>
-                <h1>{selectedSpeciality}</h1>
-                <h1>{selectedCountry}</h1> */}
                 {
                     filteredResults?.length === 0 &&
                     <div id={c.warning}>
@@ -192,7 +191,7 @@ const Clinics = () => {
                         </Link>
                     )}  
                     {
-                        filteredResults.length > initialLoad && numberTOdisplay !== filteredResults?.length && 
+                        isButtonVisible && 
                         <button onClick={handleNumber}> +{filteredResults.length - numberTOdisplay - initialLoad} more</button>
                     }
                     

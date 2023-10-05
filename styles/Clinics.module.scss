@@ -1,29 +1,53 @@
 .filter{
-    height: 200px;
+    height: 220px;
     background-color: black;    
     position: relative; 
     top:80px;
     &_tabs{
-        display: flex;
+        display: grid;
         justify-content: center;
         position: relative;
         &_kernel{
-            width: 90vw;
-            background-color: #008080;
+            width: 95vw;
             position: relative;
             height: 120px;
-            top:40px;
+            top:50px;
             z-index: 99;
             display: flex;
             justify-content: center;
-            align-items: center;
-            column-gap: 2vw;
+            align-items: flex-start;
+            column-gap: 1vw;
             flex-wrap:wrap;
+            padding-top: 20px;
             select{
-                width: 200px;
+                width: 30vw;
+                max-width: 400px;
+                font-size: medium;
+                background-color: black;
+                color: whitesmoke;
+                padding: 5px;
+                border: none;
+                box-shadow: 0px 0px 3px 1px whitesmoke;
                 &:disabled{
-                    width: 200px;
                     opacity: 1;
+                }
+            }
+            button{
+                position: absolute;
+                width: 30vw;
+                max-width: 400px;
+                border-radius: 5px;
+                padding: 5px 0;
+                display: flex;
+                justify-self: center;
+                justify-content: center;
+                align-items: center;
+                bottom: 0px;
+                font-size: medium;
+                background-color: rgba($color: gold, $alpha: 0.9);
+                &:disabled{
+                    background-color: gray;
+                    color: whitesmoke;
                 }
             }
         }
@@ -111,15 +135,12 @@
                 height: fit-content;
             }
             &:hover{
-                background-color: rgba($color: #008080, $alpha: 1);
+                box-shadow: 0px 0px 3px 2px black;
                 img{
-                    box-shadow: 2px 2px 3px 1px gray;
+                    box-shadow: 2px 2px 3px 1px black;
                     filter: brightness(1.1);
                 }
                 #text{
-                    display: grid;
-                    width: 40vw;
-                    justify-content: center;
                     h1{
                         color: gold;
                         #icon{
@@ -156,7 +177,6 @@
                     max-width: 200px;
                     height: auto;
                     object-fit: cover;
-                    filter: brightness(1.2);
                 }
                 #text{
                     width: 100%;
@@ -164,6 +184,13 @@
                     justify-content: center;
                     height: fit-content;
                     h2{font-weight: 200;}
+                }
+                &:hover{
+                    box-shadow: 1px 1px 3px 1px gray;
+                    background-color: rgba($color: gray, $alpha: 0.5);
+                    img{
+                        filter: brightness(1.35);
+                    }
                 }
             }
         }
@@ -270,10 +297,30 @@
 
 
 @media (max-width: 575.98px) { 
+    .filter{
+        height: 200px;
+        &_tabs{
+            &_kernel{
+                background-color: black;
+                height: 120px;
+                top:20px;
+                display: grid;
+                row-gap: 5px;
+                padding-top: 0;
+                select{
+                    width: 80vw;
+                }
+                button{
+                    width: 80vw;
+                    bottom: -50px;
+                }
+            }
+        }
+    }
     .clinics{
         &_kernel{
             row-gap: 0;
-            padding-top: 0;
+            padding-top: 10px;
             padding-bottom: 0;
             #warning{
                 display: grid;
