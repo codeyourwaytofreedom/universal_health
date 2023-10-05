@@ -52,7 +52,7 @@ const Login = () => {
                     console.log(resJson);
                     setTimeout(() => {
                         dispatch(update_login(true));
-                        router.push(resJson.url);
+                        window.location.href = resJson.url; 
                     }, 900);
                 }
                 if(status === 404 || status === 500){
