@@ -100,6 +100,7 @@
 @media (max-width: 991.98px) {
   .homie {
     height: auto;
+    padding-bottom: 80px;
   }
   .homie #quick {
     font-size: 15px;
