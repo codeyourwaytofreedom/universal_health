@@ -47,8 +47,8 @@ const Navbar = ({login}:{login:boolean}) => {
                         <Link href={"/clinics"} id={n.tabname}> <span id={n.mobilhide}>Clinics</span> <span id={n.enlarge}></span></Link>
                     </button>
                     <button>
-                        <Link href={"/appointment"}><Image width={25} height={25} alt={"doctor"} src={"/consult.png"} /></Link>
-                        <Link href={"/appointment"} id={n.tabname}> <span id={n.mobilhide}>Consultants</span> <span id={n.enlarge}></span></Link>
+                        <Link href={"https://github.com/codeyourwaytofreedom/universal_health"} target={"_blank"} ><Image width={25} height={25} alt={"doctor"} src={"/consult.png"} /></Link>
+                        <Link href={"https://github.com/codeyourwaytofreedom/universal_health"}target={"_blank"} id={n.tabname}> <span id={n.mobilhide}>Consultants</span> <span id={n.enlarge}></span></Link>
                     </button>
                     {
                         login && !loggedIN &&
