@@ -107,13 +107,18 @@
     -ms-writing-mode: lr-tb;
         writing-mode: horizontal-tb;
     letter-spacing: normal;
-    -webkit-animation: attention2 1s infinite;
-            animation: attention2 1s infinite;
+    -webkit-animation: none;
+            animation: none;
     align-items: center;
     border-radius: 0;
     box-shadow: none;
     background-color: black;
     color: whitesmoke;
+  }
+  .homie #quick h3 {
+    -webkit-animation: attention2 1s infinite;
+            animation: attention2 1s infinite;
+    margin-left: 5px;
   }
   .homie #quick span {
     display: block;
@@ -294,20 +299,20 @@
 @-webkit-keyframes attention2 {
   from {
     color: whitesmoke;
-    font-size: 15px;
+    transform: scale(1);
   }
   to {
     color: gold;
-    font-size: 20px;
+    transform: scale(1.1);
   }
 }
 @keyframes attention2 {
   from {
     color: whitesmoke;
-    font-size: 15px;
+    transform: scale(1);
   }
   to {
     color: gold;
-    font-size: 20px;
+    transform: scale(1.1);
   }
 }/*# sourceMappingURL=Homie.module.css.map */
