@@ -16,7 +16,6 @@
       writing-mode: vertical-lr;
   text-orientation: upright;
   letter-spacing: -5px;
-  font-size: 17px;
   background-color: rgba(0, 128, 128, 0.2);
   box-shadow: -1px -1px 7px 2px #008080;
   border-radius: 10px;
@@ -26,6 +25,9 @@
   font-weight: 600;
   cursor: pointer;
   z-index: 99999 !important;
+}
+.homie #quick h3 {
+  font-size: 17px;
 }
 .homie #quick span {
   display: none;
