@@ -43,17 +43,17 @@ const Navbar = ({login}:{login:boolean}) => {
                 </div>
                 <div className={n.navbar_kernel_tabs}>
                     <button>
-                        <Image width={25} height={25} alt={"clinic"} src={"/clinic.png"} />
+                        <Link href={"/clinics"}><Image width={25} height={25} alt={"clinic"} src={"/clinic.png"} /></Link>
                         <Link href={"/clinics"} id={n.tabname}> <span id={n.mobilhide}>Clinics</span> <span id={n.enlarge}></span></Link>
                     </button>
                     <button>
-                        <Image width={25} height={25} alt={"doctor"} src={"/consult.png"} />
-                        <Link href={"/"} id={n.tabname}> <span id={n.mobilhide}>Consultants</span> <span id={n.enlarge}></span></Link>
+                        <Link href={"/appointment"}><Image width={25} height={25} alt={"doctor"} src={"/consult.png"} /></Link>
+                        <Link href={"/appointment"} id={n.tabname}> <span id={n.mobilhide}>Consultants</span> <span id={n.enlarge}></span></Link>
                     </button>
                     {
                         login && !loggedIN &&
                         <button>
-                            <Image width={25} height={25} alt={"login"} src={"/login.png"} />
+                            <Link href={"/login"}><Image width={25} height={25} alt={"login"} src={"/login.png"} /></Link>
                             <Link href={"/login"} id={n.tabname}> <span id={n.mobilhide}>Login</span> <span id={n.enlarge}></span></Link>
                         </button>
                     }
