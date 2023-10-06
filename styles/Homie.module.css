@@ -4,6 +4,7 @@
   padding: 0 2vw;
   font-family: "Oswald", sans-serif;
   padding-top: 80px;
+  min-height: 100vh;
 }
 .homie #quick {
   position: fixed;
