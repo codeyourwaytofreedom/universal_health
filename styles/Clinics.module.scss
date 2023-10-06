@@ -325,10 +325,10 @@
                 margin-bottom: 0;
             }
             &_clinic{
-                padding-top: 20px;
                 padding-bottom: 10px;
                 display: grid;
                 justify-items: center;
+                align-items: flex-start;
                 width: 90vw;
                 #image{
                     width: 90vw;

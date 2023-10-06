@@ -320,10 +320,10 @@
     margin-bottom: 0;
   }
   .clinics_kernel_clinic {
-    padding-top: 20px;
     padding-bottom: 10px;
     display: grid;
     justify-items: center;
+    align-items: flex-start;
     width: 90vw;
   }
   .clinics_kernel_clinic #image {
