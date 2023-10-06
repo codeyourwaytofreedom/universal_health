@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Wrapper title={null} login={true}>
         <div className={h.homie}>
-          <div id={h.quick} onClick={handleQuickAppointmentClick}> <span>&#128508;</span> <h3>QUICK APPOINTMENT</h3></div>
+          <div id={h.quick} onClick={handleQuickAppointmentClick}> <span>&#128508;</span> <h3>QUICK</h3><h3>APPOINTMENT</h3></div>
           <div className={h.homie_motto}>
               <div id={h.hs}>
                 <h1>EVERY MOMENT<span></span> </h1>

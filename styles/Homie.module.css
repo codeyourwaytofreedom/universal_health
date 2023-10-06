@@ -9,6 +9,8 @@
   position: fixed;
   display: flex;
   justify-content: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   height: 380px;
   left: 4vw;
   top: calc(50vh - 200px);
@@ -16,13 +18,13 @@
       writing-mode: vertical-lr;
   text-orientation: upright;
   letter-spacing: -5px;
+  -webkit-animation: attention 1.5s infinite;
+          animation: attention 1.5s infinite;
+  font-weight: 600;
   background-color: rgba(0, 128, 128, 0.2);
   box-shadow: -1px -1px 7px 2px #008080;
   border-radius: 10px;
   padding: 10px;
-  -webkit-animation: attention 1.5s infinite;
-          animation: attention 1.5s infinite;
-  font-weight: 600;
   cursor: pointer;
   z-index: 99999 !important;
 }
@@ -300,7 +302,7 @@
 }
 @-webkit-keyframes attention2 {
   from {
-    color: whitesmoke;
+    color: gold;
     transform: scale(1);
   }
   to {
@@ -310,7 +312,7 @@
 }
 @keyframes attention2 {
   from {
-    color: whitesmoke;
+    color: gold;
     transform: scale(1);
   }
   to {

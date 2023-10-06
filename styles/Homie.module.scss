@@ -8,6 +8,7 @@
         position: fixed;
         display: flex;
         justify-content: center;
+        column-gap: 10px;
         height: 380px;
         left: 4vw;
         top:calc(50vh - 200px);
@@ -15,12 +16,12 @@
         text-orientation: upright;
         letter-spacing: -5px;
         h3{font-size: 17px;}
+        animation: attention 1.5s infinite;
+        font-weight: 600;
         background-color: rgba($color: #008080, $alpha: 0.2);
         box-shadow: -1px -1px 7px 2px #008080;
         border-radius: 10px;
         padding: 10px;
-        animation: attention 1.5s infinite;
-        font-weight: 600;
         cursor: pointer;
         z-index: 99999 !important;
         span{
@@ -264,7 +265,7 @@
 
 @keyframes attention2  {
     from{
-        color:whitesmoke;
+        color:gold;
         //font-size: 15px;
         transform: scale(1);
     }
