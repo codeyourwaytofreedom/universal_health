@@ -1,8 +1,13 @@
 .dr{
     min-height: 100vh;
     padding-top: 80px;
-    span, div, h2,h3,h4{
-        font-family: Arial, Helvetica, sans-serif !important;
+    h2{
+        color: #333333;
+    }
+    span, a, div, h1,h2,h3,h4{
+        font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+        line-height: 24px;
+        letter-spacing: 0em;
     }
     &_intro{
         background-color: rgb(252, 249, 242);
@@ -12,6 +17,7 @@
         flex-wrap:wrap;
         justify-content: space-around;
         row-gap: 20px;
+        min-height: 250px;
         &_image{
             display: flex;
             align-items: center;
@@ -77,6 +83,54 @@
                     font-size: 14px;
                     color: rgb(51, 51, 51);
                 }
+            }
+        }
+    }
+    &_book{
+        padding: 30px 4vw;
+        &_kernel{
+            border: 2px solid black;
+            border-radius: 5px;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            align-items: center;
+            padding: 50px 40px;
+            column-gap: 50px;
+            &_left, &_right{
+                display: grid;
+                row-gap: 20px;
+                color: #333333;
+                line-height: 24px;
+                font-size: 16px;
+                select{
+                    color: rgb(51, 51, 51);
+                    line-height: 24px;
+                    padding: 10px;
+                    font-weight: 100;
+                    line-height: 24px;
+                    outline: none;
+                    border: 1px solid silver;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+                    font-size: 17px;
+                    line-height: 24px;
+                    letter-spacing: 0em;
+                }
+            }
+            &_right{
+                background-color: #F7F8F9;
+                padding: 30px;
+                color: rgb(51, 51, 51);
+                text-align: left;
+                padding-right: 15%;
+                a{
+                    background-color: rgb(255, 240, 75);;
+                    width: fit-content;
+                    padding: 10px 25px;
+                    color: rgb(51, 51, 51);
+                }
+                
             }
         }
     }

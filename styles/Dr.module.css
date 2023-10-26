@@ -2,8 +2,13 @@
   min-height: 100vh;
   padding-top: 80px;
 }
-.dr span, .dr div, .dr h2, .dr h3, .dr h4 {
-  font-family: Arial, Helvetica, sans-serif !important;
+.dr h2 {
+  color: #333333;
+}
+.dr span, .dr a, .dr div, .dr h1, .dr h2, .dr h3, .dr h4 {
+  font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+  line-height: 24px;
+  letter-spacing: 0em;
 }
 .dr_intro {
   background-color: rgb(252, 249, 242);
@@ -13,6 +18,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   row-gap: 20px;
+  min-height: 250px;
 }
 .dr_intro_image {
   display: flex;
@@ -86,5 +92,55 @@
   text-overflow: ellipsis;
   overflow-y: hidden;
   font-size: 14px;
+  color: rgb(51, 51, 51);
+}
+.dr_book {
+  padding: 30px 4vw;
+}
+.dr_book_kernel {
+  border: 2px solid black;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  align-items: center;
+  padding: 50px 40px;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.dr_book_kernel_left, .dr_book_kernel_right {
+  display: grid;
+  row-gap: 20px;
+  color: #333333;
+  line-height: 24px;
+  font-size: 16px;
+}
+.dr_book_kernel_left select, .dr_book_kernel_right select {
+  color: rgb(51, 51, 51);
+  line-height: 24px;
+  padding: 10px;
+  font-weight: 100;
+  line-height: 24px;
+  outline: none;
+  border: 1px solid silver;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 24px;
+  letter-spacing: 0em;
+}
+.dr_book_kernel_right {
+  background-color: #F7F8F9;
+  padding: 30px;
+  color: rgb(51, 51, 51);
+  text-align: left;
+  padding-right: 15%;
+}
+.dr_book_kernel_right a {
+  background-color: rgb(255, 240, 75);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 25px;
   color: rgb(51, 51, 51);
 }/*# sourceMappingURL=Dr.module.css.map */
