@@ -7,13 +7,14 @@ import insurance1 from "../public/insurance1.png";
 import insurance2 from "../public/insurance2.png";
 import Link from "next/link";
 import { useState } from "react";
+import Map from "../Components/Map";
 
 
 const DR = () => {
     const [modal,setModal] = useState(false);
     return ( 
         <Wrapper title={"Doctor Profile"} login={false}>
-            <div className={d.dr}>
+            <div className={d.dr} style={{height:modal ? "100vh" : "auto"}}>
                 <div className={d.dr_modal} style={{display:modal ? "grid" : "none"}}>
                     <div className={d.dr_modal_shell}>
                         <button onClick={()=>setModal(false)}>&#x2715;</button>
@@ -202,6 +203,21 @@ const DR = () => {
                                     </div>
                             </div>
                         </div>
+
+                        <br />
+                        <div id={d.about}>
+                            <h3>Office location</h3>
+                            <div id={d.mapper}>
+                                <Map/>
+                                <div id={d.text}>
+                                    <p>Northwell Health Primary Care - Western</p>
+                                    <p>440 S Riverside Ave, Ground Level, Croton On Hudson, NY 10520</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
                     </div>
                 </div>
             </div>

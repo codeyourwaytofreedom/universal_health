@@ -5,14 +5,14 @@
 .dr h2 {
   color: #333333;
 }
-.dr span, .dr a, .dr div, .dr h1, .dr h2, .dr h3, .dr h4 {
+.dr span, .dr a, .dr div, .dr h1, .dr h2, .dr h3, .dr h4, .dr p {
   font-family: sharp-sans-medium, Arial, sans-serif;
   line-height: 24px;
   letter-spacing: 0em;
 }
 .dr_modal {
   position: fixed;
-  z-index: 999;
+  z-index: 99999 !important;
   left: 0;
   right: 0;
   top: 0;
@@ -282,6 +282,7 @@
        column-gap: 20px;
   border-bottom: 1px solid silver;
   height: 45px;
+  overflow-x: auto;
 }
 .dr_book_details_tabs a {
   padding-bottom: 25px;
@@ -393,6 +394,22 @@
   width: 40px;
   height: 40px;
 }
+.dr_book_details #about #mapper {
+  display: grid;
+  grid-template-columns: 1fr 250px;
+}
+.dr_book_details #about #mapper #text {
+  padding: 20px;
+  color: black;
+  display: grid;
+  row-gap: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.dr_book_details #about #mapper #text p:nth-child(2) {
+  color: rgb(51, 51, 51);
+}
 
 @media (max-width: 991.98px) {
   .dr_book_kernel {
@@ -474,6 +491,23 @@
     padding: 0;
     background-color: white;
   }
+  .dr_book_details #about input {
+    max-width: none;
+  }
+  .dr_book_details #about #cols {
+    grid-template-columns: 1fr;
+  }
+  .dr_book_details #about #mapper {
+    grid-template-columns: 1fr;
+  }
+  .dr_book_details #about #mapper #text {
+    max-width: 300px;
+    display: grid;
+    justify-self: center;
+  }
+  .dr_book #details {
+    width: 94vw;
+  }
   .dr_intro {
     padding: 15px 0;
   }
@@ -498,6 +532,9 @@
   }
 }
 @media (max-width: 575.98px) {
+  .dr_book {
+    padding: 1.5vw;
+  }
   .dr_book_details #shuffle #triple {
     grid-template-columns: 1fr;
   }
