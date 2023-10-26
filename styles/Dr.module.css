@@ -10,6 +10,60 @@
   line-height: 24px;
   letter-spacing: 0em;
 }
+.dr_modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.dr_modal_shell {
+  width: 500px;
+  height: 500px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  padding-top: 70px;
+  position: relative;
+}
+.dr_modal_shell button {
+  position: absolute;
+  left: 10px;
+  top: 20px;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: large;
+}
+.dr_modal_shell button:hover {
+  background-color: rgb(225, 222, 222);
+}
+.dr_modal_shell_options {
+  padding-left: 20px;
+  padding-top: 25px;
+  height: 400px;
+  overflow-y: scroll;
+}
+.dr_modal_shell_options_option {
+  position: relative;
+  padding: 15px 10px;
+}
+.dr_modal_shell_options_option h3 {
+  color: rgb(51, 51, 51);
+}
+.dr_modal_shell_options_option span {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  transform: rotate(-90deg);
+}
 .dr_intro {
   background-color: rgb(252, 249, 242);
   display: flex;
@@ -49,6 +103,9 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+}
+.dr_intro_tabs #highly {
+  border: none;
 }
 .dr_intro_tabs_each {
   padding: 0 20px;
@@ -156,17 +213,21 @@
   left: 11vw;
 }
 .dr_book_details #shuffle {
-  border: 2px solid red;
   display: grid;
   grid-template-areas: "triple triple" "left right";
+  border-bottom: 8px solid rgb(225, 222, 222);
+  padding-bottom: 20px;
 }
 .dr_book_details #shuffle #left, .dr_book_details #shuffle #right {
   grid-area: left;
   width: 150px;
-  border-right: 1px solid silver;
+  border-right: 1px solid rgb(225, 222, 222);
 }
 .dr_book_details #shuffle #left #rating, .dr_book_details #shuffle #right #rating {
   color: red;
+}
+.dr_book_details #shuffle #left #alth3, .dr_book_details #shuffle #right #alth3 {
+  display: none;
 }
 .dr_book_details #shuffle #left button, .dr_book_details #shuffle #right button {
   padding: 10px 15px;
@@ -190,6 +251,7 @@
   grid-area: right;
   width: calc(70vw - 150px);
   padding-left: 20px;
+  border: none;
 }
 .dr_book_details #shuffle #right div {
   margin: 10px 0;
@@ -257,14 +319,192 @@
   font-weight: 100;
   font-size: 15px;
 }
+.dr_book_details #about {
+  padding-top: 20px;
+  font-weight: 100;
+  color: rgb(51, 51, 51);
+}
+.dr_book_details #about h3 {
+  margin-bottom: 10px;
+}
+.dr_book_details #about div {
+  position: relative;
+}
+.dr_book_details #about #sp, .dr_book_details #about #pen {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  font-weight: 600;
+  background-color: rgb(78, 147, 243);
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.dr_book_details #about #pen {
+  display: none;
+}
+.dr_book_details #about input {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  padding-left: 50px;
+  font-size: medium;
+  font-weight: 100;
+  cursor: pointer;
+}
+.dr_book_details #about input:focus ~ #pen {
+  display: flex;
+  background-color: gray;
+}
+.dr_book_details #about input::-moz-placeholder {
+  color: rgb(78, 147, 243);
+}
+.dr_book_details #about input:-ms-input-placeholder {
+  color: rgb(78, 147, 243);
+}
+.dr_book_details #about input::placeholder {
+  color: rgb(78, 147, 243);
+}
+.dr_book_details #about input:focus::-moz-placeholder {
+  color: silver;
+}
+.dr_book_details #about input:focus:-ms-input-placeholder {
+  color: silver;
+}
+.dr_book_details #about input:focus::placeholder {
+  color: silver;
+}
+.dr_book_details #about #cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+.dr_book_details #about #cols div {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  align-items: center;
+}
+.dr_book_details #about #cols div img {
+  width: 40px;
+  height: 40px;
+}
 
 @media (max-width: 991.98px) {
   .dr_book_kernel {
     grid-template-columns: 1fr;
   }
+  .dr_book_details #shuffle {
+    grid-template-areas: "left" "triple" "right";
+  }
+  .dr_book_details #shuffle #right {
+    width: 100%;
+    padding-left: 0;
+  }
+  .dr_book_details #shuffle #right h3 {
+    display: none;
+  }
+  .dr_book_details #shuffle #right :nth-child(3) {
+    display: none;
+  }
+  .dr_book_details #shuffle #right div {
+    background-color: #F7F8F9;
+    padding: 10px;
+    padding-bottom: 30px;
+  }
+  .dr_book_details #shuffle #right div span {
+    left: 10px;
+  }
+  .dr_book_details #shuffle #right button {
+    width: 100%;
+  }
+  .dr_book_details #shuffle #left {
+    border: none;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .dr_book_details #shuffle #left h3 {
+    font-weight: 100;
+    font-size: medium;
+  }
+  .dr_book_details #shuffle #left #alth3 {
+    display: block;
+    font-weight: 600;
+    font-size: larger;
+    padding-bottom: 10px;
+    margin-top: 20px;
+  }
+  .dr_book_details #shuffle #left button {
+    width: 100%;
+  }
+  .dr_book_details #shuffle #triple {
+    border: none;
+  }
+  .dr_book_details_triple {
+    margin-bottom: 0;
+  }
   .dr_book #details {
-    border: 2px solid blue;
     width: 92vw;
     left: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .dr_book {
+    padding: 20px 2vw;
+  }
+  .dr_book_kernel {
+    padding: 30px 15px;
+  }
+  .dr_book_kernel svg {
+    display: none;
+  }
+  .dr_book_kernel h2 {
+    font-size: 20px;
+  }
+  .dr_book_kernel a {
+    width: 100%;
+    text-align: center;
+  }
+  .dr_book_kernel_right {
+    padding: 0;
+    background-color: white;
+  }
+  .dr_intro {
+    padding: 15px 0;
+  }
+  .dr_intro_image {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+    min-width: none;
+  }
+  .dr_intro_image img {
+    width: 100px;
+    height: 100px;
+  }
+  .dr_intro_image_text h2 {
+    margin-bottom: 5px;
+    font-size: large;
+  }
+  .dr_intro_tabs_each {
+    border: none;
+  }
+  .dr_intro_tabs #highly {
+    display: none;
+  }
+}
+@media (max-width: 575.98px) {
+  .dr_book_details #shuffle #triple {
+    grid-template-columns: 1fr;
+  }
+  .dr_book_details #shuffle #triple div {
+    padding-bottom: 0;
+  }
+  .dr_book_details #shuffle #triple #col2 {
+    padding-top: 20px;
   }
 }/*# sourceMappingURL=Dr.module.css.map */

@@ -2,13 +2,35 @@ import Image from "next/image";
 import Wrapper from "../Components/Wrapper";
 import d from "../styles/Dr.module.css";
 import dr from "../public/d.jpeg";
+import insurance from "../public/insurance.png";
+import insurance1 from "../public/insurance1.png";
+import insurance2 from "../public/insurance2.png";
 import Link from "next/link";
+import { useState } from "react";
 
 
 const DR = () => {
+    const [modal,setModal] = useState(false);
     return ( 
         <Wrapper title={"Doctor Profile"} login={false}>
             <div className={d.dr}>
+                <div className={d.dr_modal} style={{display:modal ? "grid" : "none"}}>
+                    <div className={d.dr_modal_shell}>
+                        <button onClick={()=>setModal(false)}>&#x2715;</button>
+                        <h2>In-network insurances</h2>
+                        <div className={d.dr_modal_shell_options}>
+                            {
+                                [...Array(15)].map((e,i)=>
+                                
+                                    <div className={d.dr_modal_shell_options_option} key={i}>
+                                        <h3>Option Number {i+1}</h3>
+                                        <span>&#x276E;</span>
+                                    </div>
+                                )
+                            }
+                        </div>
+                    </div>
+                </div>
                 <div className={d.dr_intro}>
                     <div className={d.dr_intro_image}>
                         <Image alt={"dr"} src={dr} />
@@ -35,7 +57,7 @@ const DR = () => {
                             <div>Aetna, BlueCross BlueShield, Cigna, Emblem Health, Medicare, Unit</div>
                             <h4>See if they,re in network</h4>
                         </div>
-                        <div className={d.dr_intro_tabs_each}>
+                        <div className={d.dr_intro_tabs_each} id={d.highly}>
                             <div id={d.title}>
                                 <span>&#x2714;</span>
                                 <span>Highly recommended</span>
@@ -120,7 +142,7 @@ const DR = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={d.dr_book_details_triple_column}>
+                                <div className={d.dr_book_details_triple_column} id={d.col2}>
                                     <div className={d.dr_book_details_triple_column_double}>
                                         <span>&#x23F0;</span>
                                         <div className={d.dr_book_details_triple_column_double_text}>
@@ -131,6 +153,7 @@ const DR = () => {
                                 </div>
                             </div>
                             <div id={d.left}>
+                                <h3 id={d.alth3}>What patients are saying</h3>
                                 <h3>Overall Rating</h3>
                                 <h2>5.00</h2>
                                 <div id={d.rating}>&#x2605; &#x2605; &#x2605; &#x2605; &#x2605;</div>
@@ -148,6 +171,37 @@ const DR = () => {
                             </div>
                         </div>
 
+                        <div id={d.about}>
+                            <h3>About Dr. Hajat Avdovic</h3>
+                            <div>Dr. Hajat Avdovic was born in Sarajevo, Bosnia and immigrated to New York City as a child. He grew up in Astoria, Queens and went to the Sophie Davis School of Biomedical Education at City College of NY. He received his medical degree from Albany Medical College and completed his residency in family medicine at Northwell Health Phelps Memorial Hospital where he served as a chief resident. Dr. Avdovic speaks multiple languages and has many interests like photography, traveling and sports. He strives to always provide comprehensive care to his patients with empathy and understanding. Dr. Avdovic is Board Certified in Family Medicine.
+                            </div>
+                        </div>
+                        <br />
+                        <div id={d.about}>
+                            <h3>Is this doctor in your insurance network?</h3>
+                            <div>Enter your insurance carrier and plan</div>
+                            <div>
+                                <input type="text" placeholder="choose insurance"/><span id={d.sp}>?</span><span id={d.pen}>&#x270F;</span>
+                            </div>
+                        </div>
+                        <br />
+                        <div id={d.about}>
+                            <h3>In-network insurances</h3>
+                            <div> <span style={{color:"green"}}>99% of patients </span>have successfully booked with these insurances</div>
+                            <br />
+                            <div id={d.cols}>
+                                    <div><Image alt={"insurance"} src={insurance} /> <span>Aetna</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance1} /> <span>Medicare</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance2} /> <span>BlueCross BlueShield</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance} /> <span>UnitedHealthcare</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance1} /> <span>Cigna</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance2} /> <span>UnitedHealthcare Oxford</span> </div>
+                                    <div><Image alt={"insurance"} src={insurance} /> <span>Emblem Health</span> </div>
+                                    <div>200+ more in-network plans 
+                                        <span onClick={()=>setModal(true)} style={{textDecoration:"underline", cursor:"pointer"}}>View All</span> 
+                                    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
