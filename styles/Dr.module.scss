@@ -5,7 +5,7 @@
         color: #333333;
     }
     span, a, div, h1,h2,h3,h4{
-        font-family: sharp-sans-medium, fallback-font, Arial, sans-serif;
+        font-family: sharp-sans-medium, Arial, sans-serif;
         line-height: 24px;
         letter-spacing: 0em;
     }
@@ -96,6 +96,7 @@
             align-items: center;
             padding: 50px 40px;
             column-gap: 50px;
+            position: relative;
             &_left, &_right{
                 display: grid;
                 row-gap: 20px;
@@ -129,10 +130,141 @@
                     width: fit-content;
                     padding: 10px 25px;
                     color: rgb(51, 51, 51);
+                    &:hover{
+                        background-color: rgb(252, 222, 49);
+                    }
                 }
-                
+            }
+        }
+        #details{
+            font-weight: 600;
+            color: #333333;
+            width: 70vw;
+            position: relative;
+            left: 11vw;
+        }
+        &_details{
+            #shuffle{
+                border: 2px solid red;
+                display: grid;
+                grid-template-areas: "triple triple"
+                                      "left right";
+                #left, #right{
+                    grid-area: left;
+                    width: 150px;
+                    border-right: 1px solid silver;
+                    #rating{
+                        color: red;
+                    }
+                    button{
+                        padding: 10px 15px;
+                        background-color: transparent;
+                        border: 1px solid black;
+                        border-radius: 3px;
+                        margin-top: 5px;
+                        color: #333333;
+                        &:hover{
+                            background-color: black;
+                            color: whitesmoke;
+                        }
+                    }
+                    h2{
+                        font-size: 55px;
+                        line-height: 75px;
+                        font-weight: 100;
+                        letter-spacing: 2px;
+                    }
+                }
+                #right{
+                    grid-area: right;
+                    width: calc(70vw - 150px);
+                    padding-left: 20px;
+                    div{
+                        margin: 10px 0;
+                        margin-bottom: 30px;
+                        padding-bottom: 30px;
+                        position: relative;
+                        font-weight: 100;
+                        color: #333333;
+                        padding-right: 40px;
+                        padding-bottom: 30px;
+                        span{
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            color: rgb(92, 91, 91);
+                            font-size: small;
+                        }
+                    }
+                    button{
+                        font-size: medium;
+                        width: 200px;
+                        padding: 0;
+                        height: 48px;
+                    }
+                }
+            }
+            &_tabs{
+                display: flex;
+                column-gap: 20px;
+                border-bottom: 1px solid silver;
+                height: 45px;
+                a{
+                    padding-bottom: 25px;
+                    &:hover{
+                        border-bottom: 4px solid black;
+                    }
+                }
+            }
+            &_triple{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-area: triple;
+                border-bottom: 1px solid silver;
+                margin-bottom: 30px;
+                &_column{
+                    padding: 20px 0;
+                    padding-top: 30px;
+                    display: grid;
+                    row-gap: 20px;
+                    &_double{
+                        display: flex;
+                        column-gap: 5px;
+                        span{
+                            color: red;
+                            font-size: larger;
+                        }
+                        &_text{
+                            div:nth-child(1){
+                                font-weight: 600;
+                            }
+                            div:nth-child(2){
+                                color: #333333;
+                                font-weight: 100;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
-    
 }
+
+@media (max-width: 991.98px) { 
+    .dr{
+        &_book{
+            &_kernel{
+                grid-template-columns: 1fr;
+            }
+            &_details{
+                
+            }
+            #details{
+                border: 2px solid blue;
+                width: 92vw;
+                left: 0;
+            }
+        }
+    }
+ }
