@@ -18,7 +18,7 @@
         justify-content: center;
         align-items: center;
         &_shell{
-            width: 500px;
+            min-width: 500px;
             height: 500px;
             background-color: white;
             border-radius: 10px;
@@ -255,7 +255,7 @@
                     }
                     button{
                         font-size: medium;
-                        width: 200px;
+                        width: 100% !important;
                         padding: 0;
                         height: 48px;
                     }
@@ -477,37 +477,6 @@
                 }
             }
             &_details{
-                #shuffle{
-                    //border: 2px solid red;
-                    #right{
-                        h3{
-                        }
-                        :nth-child(3){
-                        }
-                        div{
-
-                            span{
-                            }
-                        }
-                        button{
-                        }
-                    }
-                    #left{
-
-                        h3{
-
-                        }
-                        #alth3{
-
-                        }
-                        button{
-                        }
-                    }
-                    #triple{
-                    }
-                }
-                &_triple{
-                }
                 #about{
                     input{
                         max-width: none;
@@ -560,11 +529,8 @@
 
  @media (max-width: 575.98px) { 
     .dr{
-        &_intro{
-            //border:2px solid green;
-        }
         &_book{
-            padding: 1.5vw;
+            padding: 2vw;
             &_details{
                 #shuffle{
                     #triple{
@@ -576,9 +542,6 @@
                             padding-top: 20px;
                         }
                     }
-                }
-                #details{
-                    
                 }
             }
         }

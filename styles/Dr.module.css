@@ -23,7 +23,7 @@
   align-items: center;
 }
 .dr_modal_shell {
-  width: 500px;
+  min-width: 500px;
   height: 500px;
   background-color: white;
   border-radius: 10px;
@@ -272,7 +272,7 @@
 }
 .dr_book_details #shuffle #right button {
   font-size: medium;
-  width: 200px;
+  width: 100% !important;
   padding: 0;
   height: 48px;
 }
@@ -533,7 +533,7 @@
 }
 @media (max-width: 575.98px) {
   .dr_book {
-    padding: 1.5vw;
+    padding: 2vw;
   }
   .dr_book_details #shuffle #triple {
     grid-template-columns: 1fr;

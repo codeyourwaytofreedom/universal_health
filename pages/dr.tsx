@@ -210,14 +210,11 @@ const DR = () => {
                             <div id={d.mapper}>
                                 <Map/>
                                 <div id={d.text}>
-                                    <p>Northwell Health Primary Care - Western</p>
-                                    <p>440 S Riverside Ave, Ground Level, Croton On Hudson, NY 10520</p>
+                                    <p>Emrullah Can Kılıç - Smart Web Solutions</p>
+                                    <p>Gazi 06560 Yenimahalle/Ankara - Türkiye</p>
                                 </div>
                             </div>
-                            
                         </div>
-
-
                     </div>
                 </div>
             </div>
